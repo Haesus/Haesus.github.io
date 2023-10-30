@@ -1,9 +1,12 @@
 - title: Email
-  url: mailto://vszhub@gmail.com
+  url: mailto://sea15510@gmail.com
   icon: fas fa-envelope
-- title: Twitter
-  url: https://twitter.com/vszhub
-  icon: fab fa-twitter
+#- title: Twitter
+#  url: https://twitter.com/vszhub
+#  icon: fab fa-twitter
 - title: GitHub
-  url: https://github.com/vszhub/not-pure-poole
+  url: https://github.com/Haesus
   icon: fab fa-github
+- title: Instargram
+  url: https://www.instagram.com/haesu.tag/
+  icon: fa-brands fa-instagram

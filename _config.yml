@@ -1,6 +1,6 @@
 # Setup
 title: Haesus
-description: 함께하는 일을 제일 좋아합니다.
+description: 함께 일하는 것을 제일 좋아합니다.
 url: https://Haesus.github.io
 avatar: /avatar.jpeg
 paginate: 5
@@ -28,14 +28,14 @@ exclude:
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
-twitter:
-  username: vszhub
-  card: summary
+#twitter:
+#  username: vszhub
+#  card: summary
 logo: logo.png
 social:
   name: Haesus
   links:
-    - https://twitter.com/vszhub
+#    - https://twitter.com/vszhub
     - https://github.com/Haesus
 google_site_verification: xxxxx
 lang: en
@@ -54,6 +54,6 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Songzi Vong
+  name: Haesu Youn
   url: https://github.com/Haesus/
   email: sea15510@gmail.com
