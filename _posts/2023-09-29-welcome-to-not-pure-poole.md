@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Welcome to Not Pure Poole
-date: 2023-09-29 23:18 +0800
-last_modified_at: 2020-10-01 01:08:25 +0800
+date: 2023-09-29 23:18 +0900
+author: Tag
 tags: [jekyll theme, jekyll, tutorial]
 toc:  true
+math: true
 ---
 Welcome to **Not Pure Poole**! This is an example post to show the layout.
 {: .message }
