@@ -3,9 +3,10 @@ title: Tag
 description: 함께 일하는 것을 제일 좋아합니다.
 url: https://Haesus.github.io
 avatar: /avatar.jpeg
-paginate: 5
+paginate: 10
 permalink: pretty
 cover_image: /bg.jpeg
+future: true
 
 # Gems
 plugins:
@@ -28,10 +29,12 @@ exclude:
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
+
 #twitter:
 #  username: vszhub
 #  card: summary
-logo: logo.png
+#logo: logo.png
+
 social:
   name: Haesus
   links:
