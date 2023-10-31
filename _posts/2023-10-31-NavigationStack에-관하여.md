@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 깃블로그 생성 주저리주저리
-date: 2023-10-31 13:56 +0900
+title: Swift Navigationstack에 관하여
+date: 2023-10-31 20:59 +0900
 author: Tag
-tags: [일상, 블로그]
+tags: [Swift]
 math: true
-categories: daily
+categories: Swift
 published: true
 ---
 <!--<p align = "center">-->

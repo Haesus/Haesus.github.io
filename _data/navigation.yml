@@ -1,4 +1,9 @@
 - title: Home
   url: /
+#  OOTD부분을 수정할 예정입니다.
+- title: Daily
+  url: /daily/
+#- title: Categories
+#  url: /categories/
 - title: About
   url: /about/
