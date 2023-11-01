@@ -5,7 +5,7 @@ date: 2023-10-31 20:59 +0900
 author: Tag
 tags: [Swift]
 math: true
-categories: Swift
+categories: IOS
 published: true
 ---
 <!--<p align = "center">-->

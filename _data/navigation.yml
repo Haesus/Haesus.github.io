@@ -1,6 +1,9 @@
 - title: Home
   url: /
-#  OOTD부분을 수정할 예정입니다.
+- title: IOS
+  url: /ios/
+- title: Coding Test
+  url: /coding-test/
 - title: Daily
   url: /daily/
 #- title: Categories
