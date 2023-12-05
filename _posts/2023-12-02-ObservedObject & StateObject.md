@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Swift - State & Binding에 대하여
-date: 2023-11-13 23:30 +0900
+title: Swift - ObservedObject와 StateObject의 차이
+date: 2023-12-05 23:54 +0900
 author: Tag
 tags: [Swift]
 toc:  true
