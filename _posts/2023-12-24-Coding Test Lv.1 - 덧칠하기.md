@@ -66,7 +66,7 @@ func solution(_ n:Int, _ m:Int, _ section:[Int]) -> Int {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="/assets/PostImage/CodingTest-덧칠하기.jpg" style="margin-right: 10px;">
+  <img src="/assets/PostImage/CodingTest-Lv.1.jpg" style="margin-right: 10px;">
 </div>
 
 위와 같이 시간 복잡도가 조금 느린 실행 결과를 얻을 수 있다.
