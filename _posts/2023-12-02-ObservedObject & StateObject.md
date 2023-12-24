@@ -8,7 +8,7 @@ toc:  true
 categories: IOS
 published: false
 ---
-&nbsp; SwiftUI에서 뷰는 변경되는 데이터에 따라 처리코드를 따로 작성하지 않아도 상태를 정해주는 것만으로도 뷰를 자동으로 업데이트한다.
+&nbsp; SwiftUI에서 프로퍼티로 `@ObservedObject`와 `@StateObject`라는 것이 존재한다. 
 &nbsp; 이를 상태 프로퍼티(state property)라고 하며 대표적인 형태로 @State를 활용한 프로퍼티 래퍼를 사용하여 선언하는 방식이다.
 
 ```swift
