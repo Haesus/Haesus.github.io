@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Coding Test - Lv.1 덧칠하기
+title: Coding Test - Lv.1 실패율
 date: 2023-12-25 20:41 +0900
 author: Tag
 tags: [Swift, Coding Test]
