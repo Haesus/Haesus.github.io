@@ -5,7 +5,7 @@ date: 2023-12-25 20:41 +0900
 author: Tag
 tags: [Swift, Coding Test]
 # toc:  true
-categories: Coding Test
+categories: coding-test
 published: true
 ---
 <h2> 프로그래머스 Lv.1 실패율 </h2>
