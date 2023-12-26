@@ -5,7 +5,7 @@ date: 2023-12-24 20:55 +0900
 author: Tag
 tags: [Swift, Coding Test]
 # toc:  true
-categories: Coding-test
+categories: CodingTest
 published: true
 ---
 <h2> 프로그래머스 Lv.1 덧칠하기 </h2>
