@@ -22,7 +22,7 @@ published: true
 &nbsp; 전체 스테이지의 개수 N, 게임을 이용하는 사용자가 현재 멈춰있는 스테이지의 번호가 담긴 배열 stages가 매개변수로 주어질 때, 실패율이 높은 스테이지부터 내림차순으로 스테이지의 번호가 담겨있는 배열을 return 하도록 solution 함수를 완성하라. </br>
 </blockquote>
 
- <h3> 제한사항 </h3>
+ <h4> 제한사항 </h4>
 
 <blockquote>
 스테이지의 개수 N은 1 이상 500 이하의 자연수이다. </br>
@@ -51,7 +51,7 @@ func solution(_ N:Int, _ stages:[Int]) -> [Int] {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="/assets/PostImage/1225-01-CodingTest-Lv.1.jpg" style="margin-right: 10px;">
+  <img src="/assets/PostImage/231225-01-CodingTest-Lv.1.jpg" style="margin-right: 10px;">
 </div>
 
 &nbsp; 이렇게 진행할 경우 몇몇 테스트에서 시간 초과가 발생하였고 확인해보니 for 문 내부에서 고차함수를 사용할 경우 시간복잡도가 O(n^2)까지 증가할 수 있어 시간 초과가 발생하는 것이였다.
@@ -82,7 +82,7 @@ func solution(_ N:Int, _ stages:[Int]) -> [Int] {
 &nbsp; 최대한 내부에서의 고차함수 사용을 없애기 위해 코드를 수정하였고 테스트도 정상적으로 통과가 되었다.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="/assets/PostImage/1225-02-CodingTest-Lv.1.jpg" style="margin-right: 10px;">
+  <img src="/assets/PostImage/231225-02-CodingTest-Lv.1.jpg" style="margin-right: 10px;">
 </div>
 
 [참고]

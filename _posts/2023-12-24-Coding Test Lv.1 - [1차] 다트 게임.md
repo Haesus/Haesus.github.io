@@ -29,7 +29,7 @@ published: true
 &nbsp; 0~10의 정수와 문자 S, D, T, *, #로 구성된 문자열이 입력될 시 총점수를 반환하는 함수를 작성하라.
 </blockquote>
 
-<h3> 입력 형식 </h3>
+<h4> 입력 형식 </h4>
 
 <blockquote>
 &nbsp; "점수|보너스|[옵션]"으로 이루어진 문자열 3세트. </br>
@@ -42,7 +42,7 @@ published: true
 </ul>
 </blockquote>
 
- <h3> 출력 형식 </h3>
+ <h4> 출력 형식 </h4>
 
  <blockquote>
 &nbsp; 3번의 기회에서 얻은 점수 합계에 해당하는 정수값을 출력한다. <br>
@@ -87,7 +87,7 @@ func solution(_ dartResult:String) -> Int {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="/assets/PostImage/1231-01-CodingTest-LV.1.jpg" style="margin-right: 10px;">
+  <img src="/assets/PostImage/231231-01-CodingTest-LV.1.jpg" style="margin-right: 10px;">
 </div>
 
 &nbsp; 최종적으로 위 사진과 같이 오류 없이 테스트가 통과된다.
