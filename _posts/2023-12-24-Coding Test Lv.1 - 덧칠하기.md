@@ -24,7 +24,7 @@ published: true
 &nbsp; 정수 n, m과 다시 페인트를 칠하기로 정한 구역들의 번호가 담긴 정수 배열 section이 매개변수로 주어질 때 롤러로 페인트칠해야 하는 최소 횟수를 return 하는 solution 함수를 작성해 주세요. <br>
 </blockquote>
 
- <h4> 제한사항 </h4>
+<h4> 제한사항 </h4>
 
 <blockquote>
 1 ≤ m ≤ n ≤ 100,000 <br>
@@ -66,7 +66,7 @@ func solution(_ n:Int, _ m:Int, _ section:[Int]) -> Int {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="/assets/PostImage/231224-01-CodingTest-Lv.1.jpg" style="margin-right: 10px;">
+  <img src="https://drive.google.com/uc?export=view&id=1u21d9suxwD7-iRljorzXNhYWab-BL-YQ" style="margin-right: 10px;">
 </div>
 
 &nbsp; 위와 같이 시간 복잡도가 조금 느린 실행 결과를 얻을 수 있다.

@@ -87,7 +87,7 @@ func solution(_ dartResult:String) -> Int {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="/assets/PostImage/231231-01-CodingTest-LV.1.jpg" style="margin-right: 10px;">
+  <img src="https://drive.google.com/uc?export=view&id=1ND2JHAyxN5FZEuallw6oqzTLBGNAcMUH" style="margin-right: 10px;">
 </div>
 
 &nbsp; 최종적으로 위 사진과 같이 오류 없이 테스트가 통과된다.
