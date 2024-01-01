@@ -58,8 +58,9 @@ func solution(_ babbling:[String]) -> Int {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="/assets/PostImage/240101-01-CodingTest-Lv.1.jpg" style="margin-right: 10px;">
+  <img src="https://drive.google.com/uc?export=view&id=1MBr-qukEy6BX6CX6gqtdRh7VNnECgMAZ" style="margin-right: 10px;">
 </div>
+
 
 [참고]
 
