@@ -3,7 +3,7 @@ layout: post
 title: Swift - ObservedObject와 StateObject의 차이
 date: 2023-12-05 23:54 +0900
 author: Tag
-tags: [Swift]
+tags: [Swift, SwiftUI]
 toc:  true
 categories: IOS
 published: false

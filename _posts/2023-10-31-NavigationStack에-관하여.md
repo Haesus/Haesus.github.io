@@ -3,7 +3,7 @@ layout: post
 title: Swift - Navigation에 관하여
 date: 2023-11-03 13:59 +0900
 author: Tag
-tags: [Swift]
+tags: [Swift, SwiftUI]
 toc:  true
 categories: IOS
 published: true

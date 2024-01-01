@@ -3,11 +3,12 @@ layout: post
 title: Swift - State & Binding에 대하여
 date: 2023-11-13 23:30 +0900
 author: Tag
-tags: [Swift]
+tags: [Swift, SwiftUI]
 toc:  true
 categories: IOS
 published: true
 ---
+### State
 &nbsp; SwiftUI에서 뷰는 변경되는 데이터에 따라 처리코드를 따로 작성하지 않아도 상태를 정해주는 것만으로도 뷰를 자동으로 업데이트한다.
 &nbsp; 이를 상태 프로퍼티(state property)라고 하며 대표적인 형태로 @State를 활용한 프로퍼티 래퍼를 사용하여 선언하는 방식이다.
 
@@ -30,6 +31,8 @@ struct StateView: View {
 </div>
 &nbsp; 위처럼 토글을 통해 state의 값을 변경하고 해당 값이 변경될때마다 뷰를 업데이트하는 것이다.
 </p>
+
+### Binding
 &nbsp; 또한 하위 뷰에서 상위 뷰의 상태 프로퍼티에 접근하여 뷰를 구성해야하는 경우가 있는데 이런 경우 @Binding을 활용하여 뷰끼리 상태 프로퍼티를 연결해주면 쉽게 해결된다.
 
 ```swift
