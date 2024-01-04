@@ -23,6 +23,13 @@ struct StateView: View {
     }
 }
 ```
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://drive.google.com/uc?export=view&id=1NsNrPBvRX1w2aKvGro6kCLSgH25kgQcU" width="200" height="400" style="margin-right: 10px;">
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://drive.google.com/uc?export=view&id=1i-OcpcQXDVcSzpDutdnyxcOdCJzbzhvj" width="200" height="400" style="margin-right: 10px;">
+</div>
 
 &nbsp; 간단한 예제를 살펴보면 해당 StateView 뷰 내에서 @State 프로퍼티 래퍼를 통해 isPlaying의 값을 선언하고 있다. 그리고 버튼의 토글을 통해 값이 변경될 때마다 뷰를 업데이트하여 변경된 값을 출력하는 것이다.
 <div style="display: flex; justify-content: center; align-items: center;">
