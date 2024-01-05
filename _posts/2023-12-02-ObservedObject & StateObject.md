@@ -6,66 +6,111 @@ author: Tag
 tags: [Swift, SwiftUI]
 toc:  true
 categories: IOS
-published: false
+published: true
 ---
-&nbsp; SwiftUI에서 프로퍼티로 `@ObservedObject`와 `@StateObject`라는 것이 존재한다. 
-&nbsp; 이를 상태 프로퍼티(state property)라고 하며 대표적인 형태로 @State를 활용한 프로퍼티 래퍼를 사용하여 선언하는 방식이다.
+&nbsp; SwiftUI에서 프로퍼티로 `@ObservedObject`와 `@StateObject`라는 것이 존재한다. 각각의 설명을 공식문서로 살펴보면 다음과 같다.
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://drive.google.com/uc?export=view&id=1-7G113E6E_x6FApwAkcnPB0HizNnhtE4" width="max" height="max" style="margin-right: 10px;">
+</div>
+
+<br>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://drive.google.com/uc?export=view&id=1-4mlFxJXLgwDuRTHp0IFe8_uKbxNSs3g" width="max" height="max" style="margin-right: 10px;">
+</div>
+
+<br>
+
+&nbsp; 설명이 조금 다르지만 결국 두 프로퍼티 래퍼는 특정 객체를 관찰하여 값이 변경될 때 `View`에 해당 변경 사실을 알려주어 뷰를 다시 로드할 수 있도록 하는 기능을 한다.
+
+&nbsp; 이를 실제로 코드에서 어떻게 동작이 다른지 확인해보면
 
 ```swift
-struct StateView: View {
-    @State private var isPlaying: Bool = false
+class ObjectViewModel: ObservableObject {
+    @Published var number = 0
 
-
-    var body: some View {
-        Button(isPlaying ? "Pause" : "Play") {
-            isPlaying.toggle()
-        }
+    func upNumber() {
+        number += 1
     }
 }
 ```
-<div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1NsNrPBvRX1w2aKvGro6kCLSgH25kgQcU" width="200" height="400" style="margin-right: 10px;">
-</div>
 
-<div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1i-OcpcQXDVcSzpDutdnyxcOdCJzbzhvj" width="200" height="400" style="margin-right: 10px;">
-</div>
-
-&nbsp; 간단한 예제를 살펴보면 해당 StateView 뷰 내에서 @State 프로퍼티 래퍼를 통해 isPlaying의 값을 선언하고 있다. 그리고 버튼의 토글을 통해 값이 변경될 때마다 뷰를 업데이트하여 변경된 값을 출력하는 것이다.
-<div style="display: flex; justify-content: center; align-items: center;">
-<img src="/assets/PostImage/StateProperty.gif" width="200" height="400" style="margin-right: 10px;">
-</div>
-&nbsp; 위처럼 토글을 통해 state의 값을 변경하고 해당 값이 변경될때마다 뷰를 업데이트하는 것이다.
-</p>
-&nbsp; 또한 하위 뷰에서 상위 뷰의 상태 프로퍼티에 접근하여 뷰를 구성해야하는 경우가 있는데 이런 경우 @Binding을 활용하여 뷰끼리 상태 프로퍼티를 연결해주면 쉽게 해결된다.
+&nbsp; 기본적으로 `class`에 `ObservableObject` 프로토콜을 채택시키고 `Published`를 통해 `number`가 변화할 경우 해당 값을 참조하는 `View`들에게 알려줄 수 있다.
 
 ```swift
-struct StateView: View {
-    @State private var isPlaying: Bool = false
+struct ContentView: View {
+    @State var randomNumber = (0..<1000).randomElement()!
     
     var body: some View {
         VStack {
-            PlayButton(isPlaying: $isPlaying)
+            Spacer()
+            Text("랜덤 숫자 : \(randomNumber)")
+            Button("Randomize number") {
+                randomNumber = (0..<1000).randomElement()!
+            }
+        }
+        TabView {
+            ObservedObjectView()
+                .tabItem {
+                    Text("ObservedObject View")
+                }
+            StateObjectView()
+                .tabItem {
+                    Text("StateObject View")
+                }
         }
     }
 }
 
-struct PlayButton: View {
-    @Binding var isPlaying: Bool
+struct ObservedObjectView: View {
+    @ObservedObject var observedObjectViewModel = ObjectViewModel()
     
     var body: some View {
-        Button(isPlaying ? "Pause" : "Play") {
-            isPlaying.toggle()
+        VStack {
+            Text("ObservedObject")
+            Text("ObjectViewModel의 숫자 값 : \(observedObjectViewModel.number)")
+            Button("ObjectViewModel Number값 증가") {
+                observedObjectViewModel.upNumber()
+            }
+        }
+    }
+}
+
+struct StateObjectView: View {
+    @StateObject var stateObjectViewModel = ObjectViewModel()
+    
+    var body: some View {
+        VStack {
+            Text("StateObject")
+            Text("ObjectViewModel의 숫자 값 : \(stateObjectViewModel.number)")
+            Button("ObjectViewModel Number값 증가") {
+                stateObjectViewModel.upNumber()
+            }
         }
     }
 }
 ```
 
-위 예제처럼 StateView에서 상태 프로퍼티로 가지고 있는 isPlaying을 PlayButton 뷰에서 동일한 상태 프로퍼티를 통해 뷰를 그리고 싶다면 Binding을 활용하여 상태 프로퍼티를 연결시켜두면 PlayButton 뷰에서 프로퍼티의 값이 변할 경우 StateView에서도 해당 변화를 인식하고 뷰를 업데이트하게 된다.
+&nbsp; `ObservedObject`와 `StateObject`의 차이를 확인하기 위해 부모뷰로 `ContentView`를 만들어주고 해당 뷰 안에 `ObservedObjectView`와 `StateObjectView`를 넣어 줬다.
+&nbsp; 기본적으로 두 뷰 모두 `ObservedObject`와 `StateObject`로 관찰하고 있는 `number`의 값이 변할 경우 뷰를 다시 그리면서 뷰를 로드한다.
+&nbsp; 그러나 부모뷰에서 값이 변하면서 뷰가 다시 그려질 경우 `ObservedObject`의 경우 기존의 값을 읽지 못하고 `StateObject`의 경우만 기존의 값을 그대로 읽어 뷰를 그리는 모습을 볼 수 있다. 이는 부모뷰가 새로 그려지면서 `ObservedObject`의 경우는 하위뷰도 새로 그려지면서 뷰모델을 새로 읽어오는 것이기 때문이다.
 
+<div style="display: flex; justify-content: center; align-items: center;">
+<figure>
+<img src="https://drive.google.com/uc?export=view&id=1i-OcpcQXDVcSzpDutdnyxcOdCJzbzhvj" width="200" height="400" style="margin-right: 10px;">
+<figcaption><font size="2em" color="gray"> ObservedObject </font></figcaption>
+</figure>
+
+<figure>
+  <img src="https://drive.google.com/uc?export=view&id=1NsNrPBvRX1w2aKvGro6kCLSgH25kgQcU" alt="dd"width="200" height="400" style="margin-right: 10px;">
+  <figcaption><font size="2em" color="gray"> StateObject </font></figcaption>
+  </figure>
+</div>
 
 [참고]
 
-[https://developer.apple.com/documentation/swiftui/state](https://developer.apple.com/documentation/swiftui/state)
+[https://developer.apple.com/documentation/swiftui/stateobject](https://developer.apple.com/documentation/swiftui/stateobject)
+[https://developer.apple.com/documentation/swiftui/observedobject](https://developer.apple.com/documentation/swiftui/observedobject)
 
 -----
