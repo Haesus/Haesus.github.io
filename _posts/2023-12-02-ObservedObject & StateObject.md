@@ -103,9 +103,9 @@ struct StateObjectView: View {
 </figure>
 
 <figure>
-  <img src="https://drive.google.com/uc?export=view&id=1NsNrPBvRX1w2aKvGro6kCLSgH25kgQcU" alt="dd"width="200" height="400" style="margin-right: 10px;">
-  <figcaption><font size="2em" color="gray"> StateObject </font></figcaption>
-  </figure>
+<img src="https://drive.google.com/uc?export=view&id=1NsNrPBvRX1w2aKvGro6kCLSgH25kgQcU" width="200" height="400" style="margin-right: 10px;">
+<figcaption><font size="2em" color="gray"> StateObject </font></figcaption>
+</figure>
 </div>
 
 [참고]
