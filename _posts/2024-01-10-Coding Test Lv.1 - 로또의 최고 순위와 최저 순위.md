@@ -21,7 +21,7 @@ published: true
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr>    
             <td>1</td>
             <td>6개 번호가 모두 일치</td>
         </tr>
