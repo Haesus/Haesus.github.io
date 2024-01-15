@@ -4,7 +4,6 @@ title: Coding Test - Lv.1 덧칠하기
 date: 2023-12-24 20:55 +0900
 author: Tag
 tags: [Swift, Coding Test]
-# toc:  true
 categories: Coding-Test
 published: true
 ---

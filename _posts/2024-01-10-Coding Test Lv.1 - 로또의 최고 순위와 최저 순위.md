@@ -4,7 +4,6 @@ title: Coding Test - Lv.1 로또의 최고 순위와 최저 순위
 date: 2024-01-10 18:28 +0900
 author: Tag
 tags: [Swift, Coding Test]
-# toc:  true
 categories: Coding-Test
 published: true
 ---

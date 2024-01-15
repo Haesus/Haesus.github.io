@@ -4,7 +4,6 @@ title: Coding Test - Lv.1 옹알이 (2)
 date: 2024-01-01 15:42 +0900
 author: Tag
 tags: [Swift, Coding Test]
-# toc:  true
 categories: Coding-Test
 published: true
 ---

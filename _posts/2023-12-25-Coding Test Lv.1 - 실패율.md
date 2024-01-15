@@ -4,7 +4,6 @@ title: Coding Test - Lv.1 실패율
 date: 2023-12-25 20:41 +0900
 author: Tag
 tags: [Swift, Coding Test]
-# toc:  true
 categories: Coding-Test
 published: true
 ---

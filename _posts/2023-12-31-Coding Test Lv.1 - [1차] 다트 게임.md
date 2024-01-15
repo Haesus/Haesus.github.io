@@ -4,7 +4,6 @@ title: Coding Test - Lv.1 [1차] 다트 게임
 date: 2023-12-31 21:58 +0900
 author: Tag
 tags: [Swift, Coding Test]
-# toc:  true
 categories: Coding-Test
 published: true
 ---
