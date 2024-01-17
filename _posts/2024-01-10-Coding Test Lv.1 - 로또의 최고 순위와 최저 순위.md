@@ -158,7 +158,7 @@ func solution(_ lottos:[Int], _ win_nums:[Int]) -> [Int] {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1-BAdsq3ApQQqtX4DdxBSava4tub_rYnW" style="margin-right: 10px;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21350&authkey=%21ABrqCchnx7Qznt0&width=1648&height=934" style="margin-right: 10px;">
 </div>
 
 [참고]

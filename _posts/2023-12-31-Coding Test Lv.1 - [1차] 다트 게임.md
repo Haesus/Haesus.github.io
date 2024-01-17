@@ -86,7 +86,7 @@ func solution(_ dartResult:String) -> Int {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1ND2JHAyxN5FZEuallw6oqzTLBGNAcMUH" style="margin-right: 10px;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21349&authkey=%21AKHK1SJPNXCIxMk&width=1666&height=1204" style="margin-right: 10px;">
 </div>
 
 &nbsp; 최종적으로 위 사진과 같이 오류 없이 테스트가 통과된다.

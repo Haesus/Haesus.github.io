@@ -11,13 +11,13 @@ published: true
 &nbsp; SwiftUI에서 프로퍼티로 `@ObservedObject`와 `@StateObject`라는 것이 존재한다. 각각의 설명을 공식문서로 살펴보면 다음과 같다.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1-7G113E6E_x6FApwAkcnPB0HizNnhtE4" width="max" height="max" style="margin-right: 10px;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21346&authkey=%21AP2uFkd3C3XM5OU&width=897&height=296" width="max" height="max" style="margin-right: 10px;">
 </div>
 
 <br>
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1-4mlFxJXLgwDuRTHp0IFe8_uKbxNSs3g" width="max" height="max" style="margin-right: 10px;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21348&authkey=%21AFGY95iKaI__g1I&width=899&height=272" width="max" height="max" style="margin-right: 10px;">
 </div>
 
 <br>
@@ -98,12 +98,12 @@ struct StateObjectView: View {
 
 <div style="display: flex; justify-content: center; align-items: center;">
 <figure>
-<img src="https://drive.google.com/uc?export=view&id=1i-OcpcQXDVcSzpDutdnyxcOdCJzbzhvj" width="200" height="400" style="margin-right: 10px;">
+<img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21351&authkey=%21AIIfosZOjHCV1Hk&width=498&height=1080" width="200" height="400" style="margin-right: 10px;">
 <figcaption><font size="2em" color="gray"> ObservedObject </font></figcaption>
 </figure>
 
 <figure>
-<img src="https://drive.google.com/uc?export=view&id=1NsNrPBvRX1w2aKvGro6kCLSgH25kgQcU" width="200" height="400" style="margin-right: 10px;">
+<img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21352&authkey=%21AAnCtV67KXXboXw&width=498&height=1080" width="200" height="400" style="margin-right: 10px;">
 <figcaption><font size="2em" color="gray"> StateObject </font></figcaption>
 </figure>
 </div>

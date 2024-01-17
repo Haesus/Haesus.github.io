@@ -50,7 +50,7 @@ func solution(_ N:Int, _ stages:[Int]) -> [Int] {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1YTj35FTDv0ANg83_cTLOPNrks4X506CZ" style="margin-right: 10px;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21344&authkey=%21ADcIAVzyNa9qFOw&width=1644&height=1208" style="margin-right: 10px;">
 </div>
 
 &nbsp; 이렇게 진행할 경우 몇몇 테스트에서 시간 초과가 발생하였고 확인해보니 for 문 내부에서 고차함수를 사용할 경우 시간복잡도가 O(n^2)까지 증가할 수 있어 시간 초과가 발생하는 것이였다.
@@ -81,7 +81,7 @@ func solution(_ N:Int, _ stages:[Int]) -> [Int] {
 &nbsp; 최대한 내부에서의 고차함수 사용을 없애기 위해 코드를 수정하였고 테스트도 정상적으로 통과가 되었다.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://drive.google.com/uc?export=view&id=153hVvDNXxpNVNexoQSG5iFiulFCsiC4v" style="margin-right: 10px;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21345&authkey=%21ADz5LyB9oQPRP3c&width=1636&height=1212" style="margin-right: 10px;">
 </div>
 
 [참고]

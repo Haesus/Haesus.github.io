@@ -57,7 +57,7 @@ func solution(_ babbling:[String]) -> Int {
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://drive.google.com/uc?export=view&id=1MBr-qukEy6BX6CX6gqtdRh7VNnECgMAZ" style="margin-right: 10px;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21349&authkey=%21AKHK1SJPNXCIxMk&width=1666&height=1204" style="margin-right: 10px;">
 </div>
 
 
