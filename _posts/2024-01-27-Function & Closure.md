@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Swift - Function과 Closure의 차이
-date: 2024-01-27 11:00 +0900
+title: Swift - Function과 Closure
+date: 2024-01-28 23:31 +0900
 author: Tag
-tags: [Swift, SwiftUI]
+tags: [Swift]
 toc:  true
 categories: IOS
 published: false
@@ -11,7 +11,7 @@ published: false
 &nbsp; 안녕하세요. Tag입니다. 😀
 
 &nbsp; 오랜만에 Swift의 문법을 정리해보려고 합니다. 복습의 개념도 있고 오래전에 봤었던 것 같아서 기억이 가물가물한 것도 다시 머리속에 넣어보기 위해서 정리해서 작성하려고 합니다.
-&nbsp;  그러면 오늘은 함수(Function)과 클로저(Closure)의 차이에 대해 알아보겠습니다. 😆
+&nbsp;  그러면 오늘은 함수(Function)과 클로저(Closure)에 대해 알아보겠습니다. 😆
 
 ### 함수 - Function
 
@@ -69,10 +69,16 @@ print(stringPlus("Tag", "Hi"))
 ```
 &nbsp; 이러한 클로저의 표현식으로 클로저를 작성해보면 위와 같은 코드를 작성해볼 수 있다. `{}`안에 클로저의 파라미터와 반환타입, 클로저의 식을 적어 변수에 저장하여 해당 변수를 호출하면서 클로저를 동작시킬 수 있다.
 
+&nbsp; 클로저는 함수의 매개변수로도 들어갈 수 있고 매개변수의 마지막에 들어갈 경우 매개변수의 자리에서 나와 소괄호 밖에서 구현할 수도 있다. 그리고 이러한 클로저를 후행 클로저라고 한다.
+
+```swift
+    func someFunction(someString: String, )
+```
+
 
 [참고]
 
-[https://developer.apple.com/documentation/swiftui/stateobject](https://developer.apple.com/documentation/swiftui/stateobject)
-[https://developer.apple.com/documentation/swiftui/observedobject](https://developer.apple.com/documentation/swiftui/observedobject)
+[https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/)
+[https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures)
 
 -----
