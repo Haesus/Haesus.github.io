@@ -59,9 +59,7 @@ struct PlayButton: View {
 
 위 예제처럼 StateView에서 상태 프로퍼티로 가지고 있는 isPlaying을 PlayButton 뷰에서 동일한 상태 프로퍼티를 통해 뷰를 그리고 싶다면 Binding을 활용하여 상태 프로퍼티를 연결시켜두면 PlayButton 뷰에서 프로퍼티의 값이 변할 경우 StateView에서도 해당 변화를 인식하고 뷰를 업데이트하게 된다.
 
-
 [참고]
-
 [https://developer.apple.com/documentation/swiftui/state](https://developer.apple.com/documentation/swiftui/state)
 
 -----

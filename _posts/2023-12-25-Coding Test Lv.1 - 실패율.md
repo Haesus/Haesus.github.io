@@ -84,8 +84,9 @@ func solution(_ N:Int, _ stages:[Int]) -> [Int] {
   <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21345&authkey=%21ADz5LyB9oQPRP3c&width=1636&height=1212" style="margin-right: 10px;">
 </div>
 
-[참고]
+<br>
 
+[참고]
 [https://school.programmers.co.kr/learn/courses/30/lessons/42889](https://school.programmers.co.kr/learn/courses/30/lessons/42889)
 
 -----

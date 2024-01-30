@@ -60,9 +60,9 @@ func solution(_ babbling:[String]) -> Int {
   <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21349&authkey=%21AKHK1SJPNXCIxMk&width=1666&height=1204" style="margin-right: 10px;">
 </div>
 
+<br>
 
 [참고]
-
 [https://school.programmers.co.kr/learn/courses/30/lessons/42889](https://school.programmers.co.kr/learn/courses/30/lessons/42889)
 
 -----

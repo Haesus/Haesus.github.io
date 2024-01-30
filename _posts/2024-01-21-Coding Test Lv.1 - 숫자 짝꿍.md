@@ -91,7 +91,6 @@ func solution(_ X:String, _ Y:String) -> String {
 &nbsp; 위와 같이 정상적으로 테스트 코드를 성공하는 것을 확인할 수 있다.
 
 [참고]
-
 [https://school.programmers.co.kr/learn/courses/30/lessons/131128](https://school.programmers.co.kr/learn/courses/30/lessons/131128)
 
 -----

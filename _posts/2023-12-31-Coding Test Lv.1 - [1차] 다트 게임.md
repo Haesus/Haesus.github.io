@@ -92,7 +92,6 @@ func solution(_ dartResult:String) -> Int {
 &nbsp; 최종적으로 위 사진과 같이 오류 없이 테스트가 통과된다.
 
 [참고]
-
 [https://school.programmers.co.kr/learn/courses/30/lessons/17682](https://school.programmers.co.kr/learn/courses/30/lessons/17682)
 
 -----

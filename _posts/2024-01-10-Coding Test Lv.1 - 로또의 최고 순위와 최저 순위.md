@@ -161,8 +161,9 @@ func solution(_ lottos:[Int], _ win_nums:[Int]) -> [Int] {
   <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21350&authkey=%21ABrqCchnx7Qznt0&width=1648&height=934" style="margin-right: 10px;">
 </div>
 
-[참고]
+<br>
 
+[참고]
 [https://school.programmers.co.kr/learn/courses/30/lessons/77484](https://school.programmers.co.kr/learn/courses/30/lessons/77484)
 
 -----

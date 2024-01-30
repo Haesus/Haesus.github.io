@@ -71,7 +71,6 @@ func solution(_ n:Int, _ m:Int, _ section:[Int]) -> Int {
 &nbsp; 위와 같이 시간 복잡도가 조금 느린 실행 결과를 얻을 수 있다.
 
 [참고]
-
 [https://school.programmers.co.kr/learn/courses/30/lessons/161989#](https://school.programmers.co.kr/learn/courses/30/lessons/161989#)
 
 -----

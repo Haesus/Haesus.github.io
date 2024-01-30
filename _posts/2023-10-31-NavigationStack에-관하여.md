@@ -123,7 +123,6 @@ struct NavigationDestinationViewTwo: View {
 NavigationStack에 path로 stack을 추적하고 navigationDestination을 통해 해당 stack이 변화할 때 뷰를 바꾸어주는 코드를 통해 뷰를 전환 할 수 있다. 위와 같이 path를 통해 뷰를 관리해 줄 경우 path의 값을 통해 뷰를 전환할 수 있으며 배열의 값을 모두 지워 루트뷰(RootView)로 돌아갈 수 있는 코드를 작성할 수 있다.
 
 [참고]
-
 [https://developer.apple.com/documentation/swiftui/navigationstack](https://developer.apple.com/documentation/swiftui/navigationstack)
 
 -----

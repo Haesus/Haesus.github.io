@@ -108,8 +108,9 @@ struct StateObjectView: View {
 </figure>
 </div>
 
-[참고]
+<br>
 
+[참고]
 [https://developer.apple.com/documentation/swiftui/stateobject](https://developer.apple.com/documentation/swiftui/stateobject)
 [https://developer.apple.com/documentation/swiftui/observedobject](https://developer.apple.com/documentation/swiftui/observedobject)
 
