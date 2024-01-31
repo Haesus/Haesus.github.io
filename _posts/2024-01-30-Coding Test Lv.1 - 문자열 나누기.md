@@ -89,11 +89,12 @@ func solution(_ s: String) -> Int {
 &nbsp; 물론 해당 방식이 for문 내부에서 고차함수를 활용하여서 그런지 시간복잡도가 조금 더 높게 나오는 문제가 있는 것 같긴하였지만 충분히 흥미로운 코드라고 생각한다.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21381&authkey=%21ABvi6PmzhyjB8F4&width=1630&height=1210" style="margin-right: 10px;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21381&authkey=%21AB02iaWBMqbpVTs&width=1630&height=1210" style="margin-right: 10px;">
 </div>
 
-[참고]
+<br>
 
+[참고]
 [https://school.programmers.co.kr/learn/courses/30/lessons/140108](https://school.programmers.co.kr/learn/courses/30/lessons/140108)
 
 -----
