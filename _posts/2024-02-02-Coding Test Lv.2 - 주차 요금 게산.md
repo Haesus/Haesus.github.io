@@ -167,6 +167,7 @@ published: true
         <li> 주차장에 없는 차량이 출차되는 경우 </li>
         <li> 주차장에 이미 있는 차량(차량번호가 같은 차량)이 다시 입차되는 경우 </li>
     </ul>
+    </ul>
 </ul>
 </blockquote>
 
