@@ -235,6 +235,6 @@ func solution(_ fees:[Int], _ records:[String]) -> [Int] {
 <br>
 
 [참고]
-[https://school.programmers.co.kr/learn/courses/30/lessons/140108](https://school.programmers.co.kr/learn/courses/30/lessons/140108)
+[https://school.programmers.co.kr/learn/courses/30/lessons/92341](https://school.programmers.co.kr/learn/courses/30/lessons/92341)
 
 -----
