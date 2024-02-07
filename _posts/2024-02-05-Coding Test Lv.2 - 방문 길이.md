@@ -5,7 +5,7 @@ date: 2024-02-05 21:59 +0900
 author: Tag
 tags: [Swift, Coding Test]
 categories: Coding-Test
-published: false
+published: true
 ---
 <h2> 프로그래머스 Lv.2 방문 길이 </h2>
 
@@ -78,106 +78,50 @@ published: false
 
 <blockquote>
 <ul>
-    <li> <code>fees</code>의 길이 = 4 </li>
-    <ul>
-        <li> fees[0] = <code>기본 시간(분)</code> </li>
-        <li> 1 ≤ fees[0] ≤ 1,439 </li>
-        <li> fees[1] = <code>기본 요금(원)</code> </li>
-        <li> 0 ≤ fees[1] ≤ 100,000 </li>
-        <li> fees[2] = <code>단위 시간(분)</code> </li>
-        <li> 1 ≤ fees[2] ≤ 1,439 </li>
-        <li> fees[3] = <code>단위 요금(원)</code> </li>
-        <li> 1 ≤ fees[3] ≤ 10,000 </li>
-    </ul>
-    <li> 1 ≤ <code>records</code>의 길이 ≤ 1,000 </li>
-    <ul>
-    <li> <code>records</code>의 각 원소는 <code>"시각 차량번호 내역"</code> 형식의 문자열입니다. </li>
-    <li> <code>시각</code>, <code>차량번호</code>, <code>내역</code>은 하나의 공백으로 구분되어 있습니다. </li>
-    <li> <code>시각</code>은 차량이 입차되거나 출차된 시각을 나타내며, <code>HH:MM</code> 형식의 길이 5인 문자열입니다. </li>
-    <ul>
-        <li> <code>HH:MM</code>은 00:00부터 23:59까지 주어집니다. </li>
-        <li> 잘못된 시각("25:22", "09:65" 등)은 입력으로 주어지지 않습니다. </li>
-    </ul>
-    <li> <code>차량번호</code>는 자동차를 구분하기 위한, `0'~'9'로 구성된 길이 4인 문자열입니다. </li>
-    <li> <code>내역</code>은 길이 2 또는 3인 문자열로, <code>IN</code> 또는 <code>OUT</code>입니다. <code>IN</code>은 입차를, <code>OUT</code>은 출차를 의미합니다. </li>
-    <li> <code>records</code>의 원소들은 시각을 기준으로 오름차순으로 정렬되어 주어집니다. </li>
-    <li> <code>records</code>는 하루 동안의 입/출차된 기록만 담고 있으며, 입차된 차량이 다음날 출차되는 경우는 입력으로 주어지지 않습니다. </li>
-    <li> 같은 시각에, 같은 차량번호의 내역이 2번 이상 나타내지 않습니다. </li>
-    <li> 마지막 시각(23:59)에 입차되는 경우는 입력으로 주어지지 않습니다. </li>
-    <li> 아래의 예를 포함하여, 잘못된 입력은 주어지지 않습니다. </li>
-    <ul>
-        <li> 주차장에 없는 차량이 출차되는 경우 </li>
-        <li> 주차장에 이미 있는 차량(차량번호가 같은 차량)이 다시 입차되는 경우 </li>
-    </ul>
-    </ul>
+    <li> dirs는 string형으로 주어지며, 'U', 'D', 'R', 'L' 이외에 문자는 주어지지 않습니다. </li>
+    <li> dirs의 길이는 500 이하의 자연수입니다. </li>
 </ul>
 </blockquote>
 
-&nbsp; 두개의 배열을 입력 받아 해당 배열의 데이터를 가공하여 처리하는 문제라고 생각했다.
+&nbsp; 해당 문제는 캐릭터가 새롭게 걸어간 길이를 확인하여 출력하는 것이다. 따라서 한 지점에서 다른 지점으로 이동할 때 해당 이동 지점들을 배열로 저장해두면 될 것 이라고 생각했다. 물론 배열로 저장하여 확인할 경우 반대쪽에서 오는 것과 다른 것으로 인식할 경우도 있기 때문에 배열보다는 Set을 활용하여 작성하는것이 좋다고 생각하였다.
 
 ```swift
-func solution(_ fees:[Int], _ records:[String]) -> [Int] {
-    var allCar: Set<String> = []
-    var result: [Int] = []
+func solution(_ dirs:String) -> Int {
+    var charPoint = [0, 0]
+    var charMoveNew: Set<Set<[Int]>> = []
     
-    // records에서 차량번호만 추출하여 저장
-    for i in records {
-        allCar.insert(i.components(separatedBy: " ")[1])
+    for i in dirs {
+        let lastPoint = charPoint
+        if i == "U" && charPoint[1] != 5 {
+            charPoint[1] += 1
+            charMoveNew.insert([lastPoint, charPoint])
+        } else if i == "D" && charPoint[1] != -5  {
+            charPoint[1] -= 1
+            charMoveNew.insert([lastPoint, charPoint])
+        } else if i == "R" && charPoint[0] != 5  {
+            charPoint[0] += 1
+            charMoveNew.insert([lastPoint, charPoint])
+        } else if i == "L" && charPoint[0] != -5 {
+            charPoint[0] -= 1
+            charMoveNew.insert([lastPoint, charPoint])
+        }
     }
     
-    for i in Array(allCar).sorted() {
-        var lastInTime = ""
-        var lastOutTime = ""
-        var totalParkingTime = 0
-        
-        for j in records {
-            if i == j.components(separatedBy: " ")[1] {
-                if j.components(separatedBy: " ")[2] == "IN" {
-                    lastInTime = j.components(separatedBy: " ")[0]
-                } else {
-                    lastOutTime = j.components(separatedBy: " ")[0]
-                }
-                
-                if !lastInTime.isEmpty && !lastOutTime.isEmpty {
-                    totalParkingTime += (Int(lastOutTime.prefix(2))! * 60 + Int(lastOutTime.suffix(2))!) - (Int(lastInTime.prefix(2))! * 60 + Int(lastInTime.suffix(2))!)
-                    lastInTime = ""
-                    lastOutTime = ""
-                }
-            }
-        }
-        if !lastInTime.isEmpty && lastOutTime.isEmpty {
-            totalParkingTime += 1439 - (Int(lastInTime.prefix(2))! * 60 + Int(lastInTime.suffix(2))!)
-        }
-        if totalParkingTime <= fees[0] {
-            result.append(fees[1])
-        } else {
-            if (totalParkingTime - fees[0])%fees[2] != 0 {
-                result.append(fees[1] + ((totalParkingTime - fees[0]) / fees[2] + 1) * fees[3])
-            } else {
-                result.append(fees[1] + ((totalParkingTime - fees[0]) / fees[2]) * fees[3])
-            }
-        }
-    }
-    return result
+    return charMoveNew.count
 }
 ```
 
-&nbsp; 먼저 `fees`의 값들은 `records`의 처리가 끝나고 나서 사용할 값들이기에 후순위로 처리하고 `records`를 먼저 가공했다.
-&nbsp; `records`에서 차량 번호를 골라 `Set`을 활용하여 중복을 없애고 저장하였고 이를 활용하여 `records`를 for문을 돌면서 일치하는 차량 번호들만 가지고 데이터를 처리하게 작업했다.
-&nbsp; 만약 차량이 23:59 이전에 나간 기록이 없다면 23:59까지의 시간을 가지고 계산을 해야 했기 때문에 최종 현황이 입차인지 출차인지를 확인해보고 시간 계산을 진행해야 했다.
-
-&nbsp; 또한 마지막으로 요금을 계산할 때 기본 요금과 시간을 확인하고 해당 시간 내에 출차하였는지 또한 확인해보고 계산을 할 수 있도록 코드를 작성하였다.
+&nbsp; `charPoint`를 통해서 현재 캐릭터의 위치를 추적하고 입력받을 `dirs`의 값을 확인하여 캐릭터의 위치를 변경 시키기로 했다.
+&nbsp; `charMoveNew`는 이동하기 전의 캐릭터의 위치와 이동한 이후 캐릭터의 위치를 저장해두는 이중Set(?)으로 작성해보았다.
+&nbsp; 추가로 (5, 5)의 범위를 벗어날 경우 계산할 수 없게 작성해두면 코드는 정상적으로 동작하는 것을 볼 수 있다.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21388&authkey=%21AEF__4n-OENO-E8&width=1626&height=886" style="margin-right: 10px;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21396&authkey=%21ADbNi_k4F-R-CsU&width=1636&height=972" style="margin-right: 10px;">
 </div>
-
-&nbsp; 이렇게 작성할 경우 다음과 같은 성능으로 테스트를 통과할 수 있었다. 이 중 몇몇은 시간 복잡도가 살짝 높기는 했다. ㅎㅎ
-&nbsp; 다른 정답 코드를 확인하였는데 대부분이 딕셔너리를 활용하여 코드를 짠 것을 확인하였고 딕셔너리를 활용한 코드 또한 코드가 복잡하기는 하였다.
 
 <br>
 
 [참고]
-[https://school.programmers.co.kr/learn/courses/30/lessons/92341](https://school.programmers.co.kr/learn/courses/30/lessons/92341)
+[https://school.programmers.co.kr/learn/courses/30/lessons/49994](https://school.programmers.co.kr/learn/courses/30/lessons/49994)
 
 -----
