@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE_AVATAR, SITE_TITLE } from '../consts';
+import { SITE_AVATAR, SITE_NAME } from '../consts';
 import { Font } from 'astro:assets';
 
 interface Props {
@@ -16,13 +16,14 @@ const { title, description, image = SITE_AVATAR } = Astro.props;
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="icon" href="/favicon.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
 	rel="alternate"
 	type="application/rss+xml"
-	title={SITE_TITLE}
+	title={SITE_NAME}
 	href={new URL('rss.xml', Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
@@ -46,3 +47,13 @@ const { title, description, image = SITE_AVATAR } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.site)} />
+
+<script is:inline>
+	(() => {
+		const storageKey = 'haesus-theme';
+		const stored = window.localStorage.getItem(storageKey);
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const theme = stored === 'dark' || stored === 'light' ? stored : systemPrefersDark ? 'dark' : 'light';
+		document.documentElement.dataset.theme = theme;
+	})();
+</script>

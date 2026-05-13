@@ -2,7 +2,7 @@
 import SiteShell from '../../layouts/SiteShell.astro';
 import PostList from '../../components/PostList.astro';
 import { filterPostsByTag, getGroupedTags, getPublishedPosts } from '../../lib/blog';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { formatPageTitle, SITE_DESCRIPTION } from '../../consts';
 
 export async function getStaticPaths() {
 	const tags = getGroupedTags(await getPublishedPosts());
@@ -16,7 +16,7 @@ const { tag } = Astro.props;
 const posts = filterPostsByTag(await getPublishedPosts(), tag);
 ---
 
-<SiteShell title={`${SITE_TITLE} | ${tag}`} description={SITE_DESCRIPTION}>
+<SiteShell title={formatPageTitle(tag)} description={SITE_DESCRIPTION}>
 	<section class="page-intro">
 		<p class="page-intro__eyebrow">Tag</p>
 		<h2>{tag}</h2>

@@ -1,3 +1,4 @@
+export const SITE_NAME = 'Tag';
 export const SITE_TITLE = 'Tag | Haesu Youn';
 export const SITE_DESCRIPTION = '함께 일하는 것을 제일 좋아합니다.';
 export const SITE_URL = 'https://haesus.github.io';
@@ -5,23 +6,26 @@ export const SITE_AUTHOR = 'Haesu Youn';
 export const SITE_EMAIL = 'sea15510@gmail.com';
 export const SITE_AVATAR = '/images/avatar.jpeg';
 
+export function formatPageTitle(pageTitle?: string) {
+	return pageTitle ? `${pageTitle} | ${SITE_NAME}` : SITE_TITLE;
+}
+
 export const NAV_ITEMS = [
 	{ label: 'Home', href: '/' },
-	{ label: 'iOS', href: '/ios/' },
-	{ label: 'Coding Test', href: '/coding-test/' },
-	{ label: 'Daily', href: '/daily/' },
+	{ label: 'All Posts', href: '/blog/' },
 	{ label: 'About', href: '/about/' },
 ];
 
-export const ARCHIVE_ITEMS = [
-	{ label: 'All Posts', href: '/blog/' },
-	{ label: 'Tags', href: '/tags/' },
+export const HOME_CHILD_ITEMS = [
+	{ label: 'iOS', href: '/ios/' },
+	{ label: 'Coding Test', href: '/coding-test/' },
+	{ label: 'Daily', href: '/daily/' },
 ];
 
 export const SOCIAL_LINKS = [
 	{ label: 'Email', href: 'mailto:sea15510@gmail.com' },
 	{ label: 'GitHub', href: 'https://github.com/Haesus' },
-	{ label: 'Instagram', href: 'https://www.instagram.com/haesu.tag/' },
+	{ label: 'Portfolio', href: 'https://www.younhaesu.com/' },
 ];
 
 export const CATEGORY_META = {

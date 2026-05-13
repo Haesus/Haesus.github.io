@@ -2,18 +2,85 @@
 import PostList from '../../components/PostList.astro';
 import SiteShell from '../../layouts/SiteShell.astro';
 import TopArchiveNav from '../../components/TopArchiveNav.astro';
-import { getPublishedPosts } from '../../lib/blog';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { getGroupedTags, getPublishedPosts } from '../../lib/blog';
+import { formatPageTitle, SITE_DESCRIPTION } from '../../consts';
 
 const posts = await getPublishedPosts();
+const tags = getGroupedTags(posts);
 ---
 
-<SiteShell title={`${SITE_TITLE} | Blog`} description={SITE_DESCRIPTION}>
+<SiteShell title={formatPageTitle('Blog')} description={SITE_DESCRIPTION}>
 	<section class="page-intro">
 		<p class="page-intro__eyebrow">Archive</p>
 		<h2>모든 포스트</h2>
-		<p>기술 글, 코딩 테스트, 일상 기록을 시간순으로 정리합니다.</p>
+		<p>모든 포스트의 내용을 확인할 수 있습니다.</p>
 	</section>
 	<TopArchiveNav />
+
+	<section class="tag-filter" aria-labelledby="tag-filter-title">
+		<div class="tag-filter__header">
+			<p id="tag-filter-title" class="tag-filter__eyebrow">Filter</p>
+			<h3>태그로 포스트 좁혀보기</h3>
+		</div>
+		<div class="tag-filter__chips">
+			<button type="button" class="is-active" data-tag-filter="all">전체</button>
+			{
+				tags.map(({ tag, count }) => (
+					<button type="button" data-tag-filter={tag}>
+						<span>{tag}</span>
+						<span>{count}</span>
+					</button>
+				))
+			}
+		</div>
+	</section>
+
+	<div id="tag-filter-empty" class="tag-filter__empty" hidden>
+		선택한 태그와 일치하는 포스트가 없습니다.
+	</div>
+
 	<PostList posts={posts} />
 </SiteShell>
+
+<script>
+	const params = new URLSearchParams(window.location.search);
+	const initialTag = params.get('tag') ?? 'all';
+	const buttons = Array.from(document.querySelectorAll('[data-tag-filter]'));
+	const cards = Array.from(document.querySelectorAll('[data-post-card]'));
+	const emptyState = document.querySelector('#tag-filter-empty');
+
+	const updateFilter = (tag) => {
+		const normalized = tag || 'all';
+
+		buttons.forEach((button) => {
+			button.classList.toggle('is-active', button.dataset.tagFilter === normalized);
+		});
+
+		let visibleCount = 0;
+
+		cards.forEach((card) => {
+			const tags = (card.getAttribute('data-tags') || '')
+				.split('|')
+				.map((value) => value.trim())
+				.filter(Boolean);
+			const shouldShow = normalized === 'all' || tags.includes(normalized);
+			card.toggleAttribute('hidden', !shouldShow);
+			if (shouldShow) visibleCount += 1;
+		});
+
+		if (emptyState) {
+			emptyState.toggleAttribute('hidden', visibleCount !== 0);
+		}
+
+		const nextUrl = normalized === 'all' ? '/blog/' : `/blog/?tag=${encodeURIComponent(normalized)}`;
+		window.history.replaceState({}, '', nextUrl);
+	};
+
+	buttons.forEach((button) => {
+		button.addEventListener('click', () => {
+			updateFilter(button.dataset.tagFilter || 'all');
+		});
+	});
+
+	updateFilter(initialTag);
+</script>

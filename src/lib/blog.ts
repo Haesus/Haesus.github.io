@@ -19,12 +19,31 @@ export function getCategoryLabel(category?: string) {
 }
 
 export function getTagHref(tag: string) {
-	return `/tags/${encodeURIComponent(tag)}/`;
+	return `/blog/?tag=${encodeURIComponent(tag)}`;
+}
+
+function normalizeDescriptionText(text: string) {
+	return text
+		.replace(/&nbsp;/g, ' ')
+		.replace(/&#39;/g, "'")
+		.replace(/&quot;/g, '"')
+		.replace(/&amp;/g, '&')
+		.replace(/&lt;/g, '<')
+		.replace(/&gt;/g, '>')
+		.replace(/\[(.*?)\]\((.*?)\)/g, '$1')
+		.replace(/<\/?[^>]+>/g, ' ')
+		.replace(/\{:\s*[^}]+\}/g, ' ')
+		.replace(/[`*_>#-]/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
 }
 
 export function getPostDescription(post: BlogEntry) {
-	if (post.data.description.trim()) return post.data.description;
-	return `${post.data.title} 글입니다.`;
+	const source = post.data.description.trim() || `${post.data.title} 글입니다.`;
+	const normalized = normalizeDescriptionText(source);
+
+	if (normalized.length <= 180) return normalized;
+	return `${normalized.slice(0, 177).trimEnd()}...`;
 }
 
 export function getGroupedTags(posts: BlogEntry[]) {

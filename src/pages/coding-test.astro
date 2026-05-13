@@ -2,16 +2,16 @@
 import PostList from '../components/PostList.astro';
 import SiteShell from '../layouts/SiteShell.astro';
 import { filterPostsByCategory, getPublishedPosts } from '../lib/blog';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { formatPageTitle, SITE_DESCRIPTION } from '../consts';
 
 const posts = filterPostsByCategory(await getPublishedPosts(), 'Coding-Test');
 ---
 
-<SiteShell title={`${SITE_TITLE} | Coding Test`} description={SITE_DESCRIPTION}>
+<SiteShell title={formatPageTitle('Coding Test')} description={SITE_DESCRIPTION}>
 	<section class="page-intro">
 		<p class="page-intro__eyebrow">Category</p>
 		<h2>Coding Test</h2>
-		<p>문제 풀이 기록과 접근 방식, Swift 풀이 메모를 남기는 카테고리입니다.</p>
+		<p>코딩 테스트를 진행하면서 풀이한 내용을 정리해두었습니다.</p>
 	</section>
 	<PostList posts={posts} />
 </SiteShell>

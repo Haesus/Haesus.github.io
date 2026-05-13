@@ -1,14 +1,29 @@
 ---
 import {
-	ARCHIVE_ITEMS,
+	HOME_CHILD_ITEMS,
 	NAV_ITEMS,
 	SITE_AVATAR,
 	SITE_DESCRIPTION,
-	SITE_TITLE,
+	SITE_NAME,
 	SOCIAL_LINKS,
 } from '../consts';
 
 const pathname = Astro.url.pathname;
+
+const socialIconMap = {
+	Email: {
+		viewBox: '0 0 24 24',
+		path: 'M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.9-.25L12 11.675 19.1 6.5H4.9Zm14.6 11a.25.25 0 0 0 .25-.25V7.466l-7.307 5.33a.75.75 0 0 1-.886 0L4.25 7.466v9.784c0 .138.112.25.25.25h15Z',
+	},
+	GitHub: {
+		viewBox: '0 0 24 24',
+		path: 'M12 2C6.477 2 2 6.59 2 12.252c0 4.53 2.865 8.372 6.839 9.728.5.096.683-.222.683-.494 0-.244-.009-.89-.014-1.747-2.782.617-3.37-1.37-3.37-1.37-.455-1.184-1.11-1.5-1.11-1.5-.908-.636.069-.623.069-.623 1.004.072 1.532 1.055 1.532 1.055.892 1.565 2.341 1.113 2.91.85.091-.667.35-1.113.636-1.369-2.22-.26-4.555-1.14-4.555-5.073 0-1.12.39-2.035 1.029-2.753-.103-.262-.446-1.313.098-2.737 0 0 .84-.276 2.75 1.051A9.36 9.36 0 0 1 12 6.84a9.36 9.36 0 0 1 2.504.347c1.909-1.327 2.748-1.05 2.748-1.05.545 1.423.202 2.474.1 2.736.64.718 1.028 1.633 1.028 2.753 0 3.943-2.339 4.81-4.566 5.066.359.319.679.947.679 1.909 0 1.378-.012 2.488-.012 2.827 0 .274.18.594.688.493C19.138 20.62 22 16.78 22 12.252 22 6.59 17.523 2 12 2Z',
+	},
+	Portfolio: {
+		viewBox: '0 0 24 24',
+		path: 'M14 4h6v6h-1.75V6.987l-7.632 7.631-1.236-1.236 7.631-7.632H14V4ZM5.75 6A1.75 1.75 0 0 0 4 7.75v10.5C4 19.216 4.784 20 5.75 20h10.5A1.75 1.75 0 0 0 18 18.25V13h-1.75v5.25H5.75V7.75H11V6H5.75Z',
+	},
+};
 ---
 
 <aside class="sidebar">
@@ -16,10 +31,10 @@ const pathname = Astro.url.pathname;
 	<div class="sidebar__inner">
 		<div>
 			<a class="sidebar__brand" href="/">
-				<img class="sidebar__avatar" src={SITE_AVATAR} alt={SITE_TITLE} />
+				<img class="sidebar__avatar" src={SITE_AVATAR} alt={SITE_NAME} />
 				<div>
 					<p class="sidebar__eyebrow">개인 블로그</p>
-					<h1>{SITE_TITLE}</h1>
+					<h1>{SITE_NAME}</h1>
 				</div>
 			</a>
 			<p class="sidebar__description">{SITE_DESCRIPTION}</p>
@@ -34,31 +49,44 @@ const pathname = Astro.url.pathname;
 								<a href={item.href} class={pathname === item.href ? 'is-active' : undefined}>
 									{item.label}
 								</a>
+								{
+									item.href === '/' && (
+										<ul class="sidebar__subnav">
+											{
+												HOME_CHILD_ITEMS.map((child) => (
+													<li>
+														<a
+															href={child.href}
+															class={pathname === child.href ? 'is-active' : undefined}
+														>
+															{child.label}
+														</a>
+													</li>
+												))
+											}
+										</ul>
+									)
+								}
 							</li>
 						))
 					}
 				</ul>
 			</nav>
 
-			<nav class="sidebar__archive" aria-label="Archive">
-				<ul>
-					{
-						ARCHIVE_ITEMS.map((item) => (
-							<li>
-								<a href={item.href} class={pathname === item.href ? 'is-active' : undefined}>
-									{item.label}
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</nav>
-
+			<p class="sidebar__social-label">외부 링크</p>
 			<ul class="sidebar__social">
 				{
 					SOCIAL_LINKS.map((link) => (
 						<li>
 							<a href={link.href} target={link.href.startsWith('mailto:') ? undefined : '_blank'}>
+								<span class="sidebar__social-icon" aria-hidden="true">
+									<svg
+										viewBox={socialIconMap[link.label as keyof typeof socialIconMap]?.viewBox ?? '0 0 24 24'}
+										fill="currentColor"
+									>
+										<path d={socialIconMap[link.label as keyof typeof socialIconMap]?.path ?? ''}></path>
+									</svg>
+								</span>
 								{link.label}
 							</a>
 						</li>

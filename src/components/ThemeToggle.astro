@@ -1,0 +1,42 @@
+<button
+	type="button"
+	class="theme-toggle"
+	aria-label="다크 모드 전환"
+	data-theme-toggle
+>
+	<span class="theme-toggle__icon" aria-hidden="true">☀︎</span>
+	<span class="theme-toggle__label">Light</span>
+</button>
+
+<script>
+	const root = document.documentElement;
+	const storageKey = 'haesus-theme';
+	const button = document.querySelector('[data-theme-toggle]');
+
+	const getTheme = () => root.dataset.theme === 'dark' ? 'dark' : 'light';
+
+	const syncButton = () => {
+		if (!(button instanceof HTMLButtonElement)) return;
+		const theme = getTheme();
+		const label = theme === 'dark' ? 'Dark' : 'Light';
+		const icon = theme === 'dark' ? '☾' : '☀︎';
+		button.dataset.theme = theme;
+		button.setAttribute('aria-label', theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환');
+		const iconNode = button.querySelector('.theme-toggle__icon');
+		const labelNode = button.querySelector('.theme-toggle__label');
+		if (iconNode) iconNode.textContent = icon;
+		if (labelNode) labelNode.textContent = label;
+	};
+
+	const toggleTheme = () => {
+		const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
+		root.dataset.theme = nextTheme;
+		window.localStorage.setItem(storageKey, nextTheme);
+		syncButton();
+	};
+
+	if (button instanceof HTMLButtonElement) {
+		button.addEventListener('click', toggleTheme);
+		syncButton();
+	}
+</script>

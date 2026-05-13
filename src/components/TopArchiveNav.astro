@@ -1,19 +1,11 @@
 ---
-import { ARCHIVE_ITEMS } from '../consts';
-
 const pathname = Astro.url.pathname;
 ---
 
 <nav class="archive-nav" aria-label="Archive navigation">
 	<ul>
-		{
-			ARCHIVE_ITEMS.map((item) => (
-				<li>
-					<a href={item.href} class={pathname === item.href ? 'is-active' : undefined}>
-						{item.label}
-					</a>
-				</li>
-			))
-		}
+		<li>
+			<a href="/blog/" class={pathname === '/blog/' ? 'is-active' : undefined}>All Posts</a>
+		</li>
 	</ul>
 </nav>

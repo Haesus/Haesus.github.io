@@ -2,16 +2,16 @@
 import PostList from '../components/PostList.astro';
 import SiteShell from '../layouts/SiteShell.astro';
 import { filterPostsByCategory, getPublishedPosts } from '../lib/blog';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { formatPageTitle, SITE_DESCRIPTION } from '../consts';
 
 const posts = filterPostsByCategory(await getPublishedPosts(), 'daily');
 ---
 
-<SiteShell title={`${SITE_TITLE} | Daily`} description={SITE_DESCRIPTION}>
+<SiteShell title={formatPageTitle('Daily')} description={SITE_DESCRIPTION}>
 	<section class="page-intro">
 		<p class="page-intro__eyebrow">Category</p>
 		<h2>Daily</h2>
-		<p>기록성 글, 회고, 사소한 생각들을 담는 카테고리입니다.</p>
+		<p>일상, 회고 등 삶의 대부분을 차지하는 내용을 적어두려고 합니다.</p>
 	</section>
 	<PostList posts={posts} />
 </SiteShell>
