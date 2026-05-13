@@ -1,0 +1,70 @@
+---
+import {
+	ARCHIVE_ITEMS,
+	NAV_ITEMS,
+	SITE_AVATAR,
+	SITE_DESCRIPTION,
+	SITE_TITLE,
+	SOCIAL_LINKS,
+} from '../consts';
+
+const pathname = Astro.url.pathname;
+---
+
+<aside class="sidebar">
+	<div class="sidebar__cover"></div>
+	<div class="sidebar__inner">
+		<div>
+			<a class="sidebar__brand" href="/">
+				<img class="sidebar__avatar" src={SITE_AVATAR} alt={SITE_TITLE} />
+				<div>
+					<p class="sidebar__eyebrow">개인 블로그</p>
+					<h1>{SITE_TITLE}</h1>
+				</div>
+			</a>
+			<p class="sidebar__description">{SITE_DESCRIPTION}</p>
+		</div>
+
+		<div>
+			<nav class="sidebar__nav" aria-label="Primary">
+				<ul>
+					{
+						NAV_ITEMS.map((item) => (
+							<li>
+								<a href={item.href} class={pathname === item.href ? 'is-active' : undefined}>
+									{item.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<nav class="sidebar__archive" aria-label="Archive">
+				<ul>
+					{
+						ARCHIVE_ITEMS.map((item) => (
+							<li>
+								<a href={item.href} class={pathname === item.href ? 'is-active' : undefined}>
+									{item.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<ul class="sidebar__social">
+				{
+					SOCIAL_LINKS.map((link) => (
+						<li>
+							<a href={link.href} target={link.href.startsWith('mailto:') ? undefined : '_blank'}>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+</aside>

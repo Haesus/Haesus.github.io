@@ -1,0 +1,21 @@
+---
+import { SITE_AUTHOR } from '../consts';
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+	<p>&copy; {year} {SITE_AUTHOR}. Astro 기반으로 운영합니다.</p>
+</footer>
+<style>
+	footer {
+		padding: 3rem 1.25rem 5rem;
+		border-top: 1px solid var(--line);
+		color: var(--muted);
+		text-align: center;
+	}
+	p {
+		margin: 0;
+		font-size: 0.95rem;
+	}
+</style>

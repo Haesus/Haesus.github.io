@@ -1,0 +1,78 @@
+---
+import SiteShell from './SiteShell.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { getCategoryHref, getTagHref } from '../lib/blog';
+
+interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	author?: string;
+	tags?: string[];
+	category?: string;
+	headings?: { depth: number; slug: string; text: string }[];
+}
+
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	author = 'Tag',
+	tags = [],
+	category,
+	headings = [],
+} = Astro.props;
+---
+
+<SiteShell title={title} description={description}>
+	<article class="post">
+		<header class="post__header">
+			<p class="post__date"><FormattedDate date={pubDate} /></p>
+			<h1>{title}</h1>
+			<div class="post__meta">
+				<span>{author}</span>
+				{
+					category && (
+						<>
+							<span aria-hidden="true">•</span>
+							<a href={getCategoryHref(category)}>{category}</a>
+						</>
+					)
+				}
+				{
+					updatedDate && (
+						<>
+							<span aria-hidden="true">•</span>
+							<span>Updated <FormattedDate date={updatedDate} /></span>
+						</>
+					)
+				}
+			</div>
+		</header>
+
+		<div class="prose">
+			<slot />
+		</div>
+
+		{
+			tags.length > 0 && (
+				<ul class="post__tags">
+					{tags.map((tag) => <li><a href={getTagHref(tag)}>{tag}</a></li>)}
+				</ul>
+			)
+		}
+	</article>
+
+	{
+		headings.length > 0 && (
+			<div slot="aside" class="toc">
+				<p class="toc__title">목차</p>
+				<ul>
+					{headings.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}
+				</ul>
+			</div>
+		)
+	}
+</SiteShell>

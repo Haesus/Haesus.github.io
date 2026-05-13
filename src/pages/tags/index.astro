@@ -1,0 +1,19 @@
+---
+import SiteShell from '../../layouts/SiteShell.astro';
+import { getGroupedTags, getPublishedPosts, getTagHref } from '../../lib/blog';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+const tags = getGroupedTags(await getPublishedPosts());
+---
+
+<SiteShell title={`${SITE_TITLE} | Tags`} description={SITE_DESCRIPTION}>
+	<section class="page-intro">
+		<p class="page-intro__eyebrow">Archive</p>
+		<h2>Tags</h2>
+		<p>글에 사용된 태그를 기준으로 포스트를 탐색할 수 있습니다.</p>
+	</section>
+
+	<div class="tag-grid">
+		{tags.map(({ tag, count }) => <a href={getTagHref(tag)}><span>{tag}</span><span>{count}</span></a>)}
+	</div>
+</SiteShell>

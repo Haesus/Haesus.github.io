@@ -1,0 +1,19 @@
+---
+import PostList from '../../components/PostList.astro';
+import SiteShell from '../../layouts/SiteShell.astro';
+import TopArchiveNav from '../../components/TopArchiveNav.astro';
+import { getPublishedPosts } from '../../lib/blog';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+const posts = await getPublishedPosts();
+---
+
+<SiteShell title={`${SITE_TITLE} | Blog`} description={SITE_DESCRIPTION}>
+	<section class="page-intro">
+		<p class="page-intro__eyebrow">Archive</p>
+		<h2>모든 포스트</h2>
+		<p>기술 글, 코딩 테스트, 일상 기록을 시간순으로 정리합니다.</p>
+	</section>
+	<TopArchiveNav />
+	<PostList posts={posts} />
+</SiteShell>

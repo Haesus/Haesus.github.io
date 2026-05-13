@@ -1,0 +1,19 @@
+---
+import SiteShell from '../layouts/SiteShell.astro';
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<SiteShell title={`${SITE_TITLE} | About`} description={SITE_DESCRIPTION}>
+	<section class="page-intro">
+		<p class="page-intro__eyebrow">About</p>
+		<h2>{SITE_AUTHOR}</h2>
+		<p>
+			iOS 개발 학습 기록과 일상적인 생각을 같이 정리하는 개인 블로그입니다. 지금은 기존 Jekyll
+			블로그를 Astro 기반 구조로 옮기는 중이며, 이후에는 NAS Docker 배포를 기준으로 운영할 예정입니다.
+		</p>
+		<p>
+			이 공간에는 Swift, SwiftUI, 코딩 테스트, 학습 메모, 회고성 글이 함께 쌓입니다. 글의 완성도보다
+			지속적으로 기록하고 축적하는 흐름을 더 중요하게 가져가려 합니다.
+		</p>
+	</section>
+</SiteShell>

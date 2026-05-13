@@ -1,0 +1,26 @@
+---
+import SiteShell from '../../layouts/SiteShell.astro';
+import PostList from '../../components/PostList.astro';
+import { filterPostsByTag, getGroupedTags, getPublishedPosts } from '../../lib/blog';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+export async function getStaticPaths() {
+	const tags = getGroupedTags(await getPublishedPosts());
+	return tags.map(({ tag }) => ({
+		params: { tag },
+		props: { tag },
+	}));
+}
+
+const { tag } = Astro.props;
+const posts = filterPostsByTag(await getPublishedPosts(), tag);
+---
+
+<SiteShell title={`${SITE_TITLE} | ${tag}`} description={SITE_DESCRIPTION}>
+	<section class="page-intro">
+		<p class="page-intro__eyebrow">Tag</p>
+		<h2>{tag}</h2>
+		<p>선택한 태그와 연결된 포스트만 모아본 결과입니다.</p>
+	</section>
+	<PostList posts={posts} />
+</SiteShell>

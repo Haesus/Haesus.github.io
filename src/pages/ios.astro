@@ -1,0 +1,17 @@
+---
+import PostList from '../components/PostList.astro';
+import SiteShell from '../layouts/SiteShell.astro';
+import { filterPostsByCategory, getPublishedPosts } from '../lib/blog';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = filterPostsByCategory(await getPublishedPosts(), 'IOS');
+---
+
+<SiteShell title={`${SITE_TITLE} | iOS`} description={SITE_DESCRIPTION}>
+	<section class="page-intro">
+		<p class="page-intro__eyebrow">Category</p>
+		<h2>iOS</h2>
+		<p>Swift, SwiftUI, Apple 플랫폼 관련 학습 기록을 모아둔 카테고리입니다.</p>
+	</section>
+	<PostList posts={posts} />
+</SiteShell>
