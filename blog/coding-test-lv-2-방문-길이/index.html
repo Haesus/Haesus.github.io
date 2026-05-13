@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Tag" href="https://haesus.github.io/rss.xml"><meta name="generator" content="Astro v6.3.1"><style>@font-face{font-family:Atkinson-c7f4c4e8b285552f;src:url("/_astro/fonts/0f166c961e6766f5.woff") format("woff");font-display:swap;font-weight:400;font-style:normal;}@font-face{font-family:Atkinson-c7f4c4e8b285552f;src:url("/_astro/fonts/54c5ef53dde7bb44.woff") format("woff");font-display:swap;font-weight:700;font-style:normal;}@font-face{font-family:"Atkinson-c7f4c4e8b285552f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:99.3717%;ascent-override:80.1033%;descent-override:25.2587%;line-gap-override:0%;}@font-face{font-family:"Atkinson-c7f4c4e8b285552f fallback: Arial";src:local("Arial");font-display:swap;font-weight:700;font-style:normal;size-adjust:99.3717%;ascent-override:80.1033%;descent-override:25.2587%;line-gap-override:0%;}:root{--font-atkinson:Atkinson-c7f4c4e8b285552f,"Atkinson-c7f4c4e8b285552f fallback: Arial",sans-serif;}</style><link rel="preload" href="/_astro/fonts/0f166c961e6766f5.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/_astro/fonts/54c5ef53dde7bb44.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://haesus.github.io/blog/coding-test-lv-2-%EB%B0%A9%EB%AC%B8-%EA%B8%B8%EC%9D%B4/"><title>Coding Test - Lv.2 방문 길이</title><meta name="title" content="Coding Test - Lv.2 방문 길이"><meta name="description" content="프로그래머스 Lv.2 방문 길이 &#38;nbsp; 게임 캐릭터를 4가지 명령어를 통해 움직이려 합니다. 명령어는 다음과 같습니다. U: 위쪽으로 한 칸 가기 D: 아래쪽으로 한 칸 가기 R: 오른쪽으로 한 칸 가기 L:"><meta property="og:type" content="website"><meta property="og:url" content="https://haesus.github.io/blog/coding-test-lv-2-%EB%B0%A9%EB%AC%B8-%EA%B8%B8%EC%9D%B4/"><meta property="og:title" content="Coding Test - Lv.2 방문 길이"><meta property="og:description" content="프로그래머스 Lv.2 방문 길이 &#38;nbsp; 게임 캐릭터를 4가지 명령어를 통해 움직이려 합니다. 명령어는 다음과 같습니다. U: 위쪽으로 한 칸 가기 D: 아래쪽으로 한 칸 가기 R: 오른쪽으로 한 칸 가기 L:"><meta property="og:image" content="https://haesus.github.io/images/avatar.jpeg"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://haesus.github.io/blog/coding-test-lv-2-%EB%B0%A9%EB%AC%B8-%EA%B8%B8%EC%9D%B4/"><meta property="twitter:title" content="Coding Test - Lv.2 방문 길이"><meta property="twitter:description" content="프로그래머스 Lv.2 방문 길이 &#38;nbsp; 게임 캐릭터를 4가지 명령어를 통해 움직이려 합니다. 명령어는 다음과 같습니다. U: 위쪽으로 한 칸 가기 D: 아래쪽으로 한 칸 가기 R: 오른쪽으로 한 칸 가기 L:"><meta property="twitter:image" content="https://haesus.github.io/images/avatar.jpeg"><link rel="stylesheet" href="/_astro/SiteShell.CjINr7AU.css"></head> <body> <div class="shell"> <aside class="sidebar"> <div class="sidebar__cover"></div> <div class="sidebar__inner"> <div> <a class="sidebar__brand" href="/"> <img class="sidebar__avatar" src="/images/avatar.jpeg" alt="Tag"> <div> <p class="sidebar__eyebrow">개인 블로그</p> <h1>Tag</h1> </div> </a> <p class="sidebar__description">함께 일하는 것을 제일 좋아합니다.</p> </div> <div> <nav class="sidebar__nav" aria-label="Primary"> <ul> <li> <a href="/"> Home </a> </li><li> <a href="/ios/"> iOS </a> </li><li> <a href="/coding-test/"> Coding Test </a> </li><li> <a href="/daily/"> Daily </a> </li><li> <a href="/about/"> About </a> </li> </ul> </nav> <nav class="sidebar__archive" aria-label="Archive"> <ul> <li> <a href="/blog/"> All Posts </a> </li><li> <a href="/tags/"> Tags </a> </li> </ul> </nav> <ul class="sidebar__social"> <li> <a href="mailto:sea15510@gmail.com"> Email </a> </li><li> <a href="https://github.com/Haesus" target="_blank"> GitHub </a> </li><li> <a href="https://www.instagram.com/haesu.tag/" target="_blank"> Instagram </a> </li> </ul> </div> </div> </aside> <main class="shell__main">  <article class="post"> <header class="post__header"> <p class="post__date"><time datetime="2024-02-05T12:59:00.000Z"> 2024년 2월 5일 </time></p> <h1>Coding Test - Lv.2 방문 길이</h1> <div class="post__meta"> <span>Tag</span>  <span aria-hidden="true">•</span> <a href="/coding-test/">Coding-Test</a>   </div> </header> <div class="prose">  <h2> 프로그래머스 Lv.2 방문 길이 </h2>
+<blockquote>
+  게임 캐릭터를 4가지 명령어를 통해 움직이려 합니다. 명령어는 다음과 같습니다.
+<ul>
+    <li> U: 위쪽으로 한 칸 가기 </li>
+    <li> D: 아래쪽으로 한 칸 가기 </li>
+    <li> R: 오른쪽으로 한 칸 가기 </li>
+    <li> L: 왼쪽으로 한 칸 가기 </li>
+</ul>
+<p>  캐릭터는 좌표평면의 (0, 0) 위치에서 시작합니다. 좌표평면의 경계는 왼쪽 위(-5, 5), 왼쪽 아래(-5, -5), 오른쪽 위(5, 5), 오른쪽 아래(5, -5)로 이루어져 있습니다.</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/ace0e7bc-9092-4b95-9bfb-3a55a2aa780e/%E1%84%87%E1%85%A1%E1%86%BC%E1%84%86%E1%85%AE%E1%86%AB%E1%84%80%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B51_qpp9l3.png" style="margin-right: 10px;">
+</div>
+<br>
+<p>  예를 들어, “ULURRDLLU”로 명령했다면</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/668c7458-e184-472d-9d32-f5d2acca759a/%E1%84%87%E1%85%A1%E1%86%BC%E1%84%86%E1%85%AE%E1%86%AB%E1%84%80%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B52_lezmdo.png" style="margin-right: 10px;">
+</div>
+<br>
+<ul>
+<li> 1번 명령어부터 7번 명령어까지 다음과 같이 움직입니다. </li>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/08558e36-d667-4160-bfec-b754c78a7d85/%E1%84%87%E1%85%A1%E1%86%BC%E1%84%86%E1%85%AE%E1%86%AB%E1%84%80%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B53_sootjd.png" style="margin-right: 10px;">
+</div>
+<br>
+<li> 8번 명령어부터 9번 명령어까지 다음과 같이 움직입니다. </li>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/a52af28e-5835-438b-9f40-5467ebf9bf03/%E1%84%87%E1%85%A1%E1%86%BC%E1%84%86%E1%85%AE%E1%86%AB%E1%84%80%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B54_hlpiej.png" style="margin-right: 10px;">
+</div>
+<br>
+<p>  이때, 우리는 게임 캐릭터가 지나간 길 중 캐릭터가 처음 걸어본 길의 길이를 구하려고 합니다. 예를 들어 위의 예시에서 게임 캐릭터가 움직인 길이는 9이지만, 캐릭터가 처음 걸어본 길의 길이는 7이 됩니다. (8, 9번 명령어에서 움직인 길은 2, 3번 명령어에서 이미 거쳐 간 길입니다)</p>
+<p>  단, 좌표평면의 경계를 넘어가는 명령어는 무시합니다.</p>
+<p>  예를 들어, “LULLLLLLU”로 명령했다면</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/f631f005-f8de-4392-a76c-a9ef64b6de08/%E1%84%87%E1%85%A1%E1%86%BC%E1%84%86%E1%85%AE%E1%86%AB%E1%84%80%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B55_nitjwj.png" style="margin-right: 10px;">
+</div>
+<br>
+<li> 1번 명령어부터 6번 명령어대로 움직인 후, 7, 8번 명령어는 무시합니다. 다시 9번 명령어대로 움직입니다. </li>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/35e62f0a-43c6-4142-bec6-6d28fbc57216/%E1%84%87%E1%85%A1%E1%86%BC%E1%84%86%E1%85%AE%E1%86%AB%E1%84%80%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B56_nzhumd.png" style="margin-right: 10px;">
+</div>
+</ul>
+<br>
+<p>  이때 캐릭터가 처음 걸어본 길의 길이는 7이 됩니다.</p>
+<p>  명령어가 매개변수 dirs로 주어질 때, 게임 캐릭터가 처음 걸어본 길의 길이를 구하여 return 하는 solution 함수를 완성해 주세요.</p>
+</blockquote>
+<h4> 제한사항 </h4>
+<blockquote>
+<ul>
+    <li> dirs는 string형으로 주어지며, 'U', 'D', 'R', 'L' 이외에 문자는 주어지지 않습니다. </li>
+    <li> dirs의 길이는 500 이하의 자연수입니다. </li>
+</ul>
+</blockquote>
+<p>  해당 문제는 캐릭터가 새롭게 걸어간 길이를 확인하여 출력하는 것이다. 따라서 한 지점에서 다른 지점으로 이동할 때 해당 이동 지점들을 배열로 저장해두면 될 것 이라고 생각했다. 물론 배열로 저장하여 확인할 경우 반대쪽에서 오는 것과 다른 것으로 인식할 경우도 있기 때문에 배열보다는 Set을 활용하여 작성하는것이 좋다고 생각하였다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="swift"><code><span class="line"><span style="color:#F97583">func</span><span style="color:#B392F0"> solution</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">_</span><span style="color:#E1E4E8"> dirs:</span><span style="color:#79B8FF">String</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">-></span><span style="color:#79B8FF"> Int</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    var</span><span style="color:#E1E4E8"> charPoint </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#F97583">    var</span><span style="color:#E1E4E8"> charMoveNew: </span><span style="color:#79B8FF">Set</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">Set</span><span style="color:#E1E4E8">&#x3C;[</span><span style="color:#79B8FF">Int</span><span style="color:#E1E4E8">]>> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> dirs {</span></span>
+<span class="line"><span style="color:#F97583">        let</span><span style="color:#E1E4E8"> lastPoint </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> charPoint</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "U"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> charPoint[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> 5</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">            charPoint[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">+=</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line"><span style="color:#E1E4E8">            charMoveNew.</span><span style="color:#79B8FF">insert</span><span style="color:#E1E4E8">([lastPoint, charPoint])</span></span>
+<span class="line"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "D"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> charPoint[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> -5</span><span style="color:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#E1E4E8">            charPoint[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">-=</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line"><span style="color:#E1E4E8">            charMoveNew.</span><span style="color:#79B8FF">insert</span><span style="color:#E1E4E8">([lastPoint, charPoint])</span></span>
+<span class="line"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "R"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> charPoint[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> 5</span><span style="color:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#E1E4E8">            charPoint[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">+=</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line"><span style="color:#E1E4E8">            charMoveNew.</span><span style="color:#79B8FF">insert</span><span style="color:#E1E4E8">([lastPoint, charPoint])</span></span>
+<span class="line"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "L"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> charPoint[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> -5</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">            charPoint[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">-=</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line"><span style="color:#E1E4E8">            charMoveNew.</span><span style="color:#79B8FF">insert</span><span style="color:#E1E4E8">([lastPoint, charPoint])</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> charMoveNew.</span><span style="color:#79B8FF">count</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>  <code>charPoint</code>를 통해서 현재 캐릭터의 위치를 추적하고 입력받을 <code>dirs</code>의 값을 확인하여 캐릭터의 위치를 변경 시키기로 했다.
+  <code>charMoveNew</code>는 이동하기 전의 캐릭터의 위치와 이동한 이후 캐릭터의 위치를 저장해두는 이중Set(?)으로 작성해보았다.
+  추가로 (5, 5)의 범위를 벗어날 경우 계산할 수 없게 작성해두면 코드는 정상적으로 동작하는 것을 볼 수 있다.</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://onedrive.live.com/embed?resid=1C2ED43779C10D71%21396&#x26;authkey=%21ADbNi_k4F-R-CsU&#x26;width=1636&#x26;height=972" style="margin-right: 10px;">
+</div>
+<br>
+<p>[참고]
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/49994">https://school.programmers.co.kr/learn/courses/30/lessons/49994</a></p>
+<hr>  </div> <ul class="post__tags"> <li><a href="/tags/Swift/">Swift</a></li><li><a href="/tags/Coding%20Test/">Coding Test</a></li> </ul> </article>  <footer data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>&copy; 2026 Haesu Youn. Astro 기반으로 운영합니다.</p> </footer> </main> <aside class="shell__aside">  </aside> </div> </body></html>
