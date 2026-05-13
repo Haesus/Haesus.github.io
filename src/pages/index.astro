@@ -2,14 +2,14 @@
 import PostList from '../components/PostList.astro';
 import SiteShell from '../layouts/SiteShell.astro';
 import { getPublishedPosts } from '../lib/blog';
-import { CATEGORY_META, formatPageTitle, SITE_DESCRIPTION } from '../consts';
+import { CATEGORY_META, SITE_COVER, formatPageTitle, SITE_DESCRIPTION } from '../consts';
 
 const posts = await getPublishedPosts();
 const latestPosts = posts.slice(0, 8);
 const categoryLinks = Object.values(CATEGORY_META);
 ---
 
-<SiteShell title={formatPageTitle()} description={SITE_DESCRIPTION}>
+<SiteShell title={formatPageTitle()} description={SITE_DESCRIPTION} image={SITE_COVER}>
 	<section class="hero hero--home">
 		<div class="hero__content">
 			<p class="hero__eyebrow">Tag</p>

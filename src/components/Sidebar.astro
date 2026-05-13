@@ -3,6 +3,7 @@ import {
 	HOME_CHILD_ITEMS,
 	NAV_ITEMS,
 	SITE_AVATAR,
+	SITE_COVER,
 	SITE_DESCRIPTION,
 	SITE_NAME,
 	SOCIAL_LINKS,
@@ -26,7 +27,7 @@ const socialIconMap = {
 };
 ---
 
-<aside class="sidebar">
+<aside class="sidebar" style={`--sidebar-cover: url('${SITE_COVER}')`}>
 	<div class="sidebar__inner">
 		<div class="sidebar__header">
 			<a class="sidebar__brand" href="/">

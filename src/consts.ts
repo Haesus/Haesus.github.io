@@ -5,6 +5,7 @@ export const SITE_URL = 'https://haesus.github.io';
 export const SITE_AUTHOR = 'Haesu Youn';
 export const SITE_EMAIL = 'sea15510@gmail.com';
 export const SITE_AVATAR = '/images/avatar.jpeg';
+export const SITE_COVER = '/images/cover.jpeg';
 
 export function formatPageTitle(pageTitle?: string) {
 	return pageTitle ? `${pageTitle} | ${SITE_NAME}` : SITE_TITLE;
