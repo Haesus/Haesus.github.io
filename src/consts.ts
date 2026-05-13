@@ -1,4 +1,4 @@
-export const SITE_TITLE = 'Tag';
+export const SITE_TITLE = 'Tag | Haesu Youn';
 export const SITE_DESCRIPTION = '함께 일하는 것을 제일 좋아합니다.';
 export const SITE_URL = 'https://haesus.github.io';
 export const SITE_AUTHOR = 'Haesu Youn';
