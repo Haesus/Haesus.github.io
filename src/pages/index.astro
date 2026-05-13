@@ -1,69 +1,22 @@
 ---
 import PostList from '../components/PostList.astro';
 import SiteShell from '../layouts/SiteShell.astro';
-import { filterPostsByCategory, getPublishedPosts } from '../lib/blog';
+import { getPublishedPosts } from '../lib/blog';
 import { CATEGORY_META, formatPageTitle, SITE_DESCRIPTION } from '../consts';
 
 const posts = await getPublishedPosts();
-const featuredPosts = posts.slice(0, 4);
-const latestPosts = posts.slice(4, 8);
-
-const categoryHighlights = [
-	{
-		key: 'IOS',
-		eyebrow: 'Build',
-		title: 'iOS',
-		description: 'Swift와 SwiftUI를 중심으로 구현과 학습 기록을 모아둔 카테고리입니다.',
-	},
-	{
-		key: 'Coding-Test',
-		eyebrow: 'Practice',
-		title: 'Coding Test',
-		description: '문제 풀이 과정과 접근 방식, Swift 풀이 메모를 빠르게 훑어볼 수 있습니다.',
-	},
-	{
-		key: 'daily',
-		eyebrow: 'Archive',
-		title: 'Daily',
-		description: '일상 기록과 회고, 공부 흐름을 이어가기 위한 메모를 남기는 공간입니다.',
-	},
-].map((item) => {
-	const postsInCategory = filterPostsByCategory(posts, item.key);
-	const meta = CATEGORY_META[item.key as keyof typeof CATEGORY_META];
-
-	return {
-		...item,
-		href: meta.href,
-		count: postsInCategory.length,
-		latest: postsInCategory[0],
-	};
-});
+const latestPosts = posts.slice(0, 8);
+const categoryLinks = Object.values(CATEGORY_META);
 ---
 
 <SiteShell title={formatPageTitle()} description={SITE_DESCRIPTION}>
 	<section class="hero hero--home">
 		<div class="hero__content">
-			<p class="hero__eyebrow">Developer Journal</p>
-			<h2>개발, 인프라, 일상을 오래 남는 기록으로 정리합니다.</h2>
+			<p class="hero__eyebrow">Tag</p>
+			<h2>개발과 일상을 기록하는 개인 블로그입니다.</h2>
 			<p class="hero__body">
-				Swift와 iOS 개발 경험을 중심으로, 서버와 NAS 인프라를 만지며 배운 것과 일상 회고를 한 곳에
-				쌓아갑니다.
+				Swift와 iOS 개발 경험을 중심으로, 구현 과정에서 배운 점과 일상 기록을 차분하게 정리합니다.
 			</p>
-		</div>
-		<div class="hero__panel">
-			<div class="hero__metric">
-				<span>Published</span>
-				<strong>{posts.length}</strong>
-				<p>현재 공개된 포스트 수</p>
-			</div>
-			<div class="hero__metric">
-				<span>Focus</span>
-				<strong>3</strong>
-				<p>iOS, Coding Test, Daily</p>
-			</div>
-			<div class="hero__note">
-				<p>가볍게 쓰더라도 오래 남길 수 있는 구조를 목표로 운영하고 있습니다.</p>
-			</div>
 		</div>
 	</section>
 
@@ -72,43 +25,16 @@ const categoryHighlights = [
 			<p class="page-intro__eyebrow">Categories</p>
 			<h3>주요 카테고리</h3>
 		</div>
-		<div class="category-grid">
-			{
-				categoryHighlights.map((item) => (
-					<a class="category-card" href={item.href}>
-						<p class="category-card__eyebrow">{item.eyebrow}</p>
-						<div class="category-card__topline">
-							<h4>{item.title}</h4>
-							<span>{item.count}</span>
-						</div>
-						<p class="category-card__description">{item.description}</p>
-						{
-							item.latest && (
-								<div class="category-card__latest">
-									<span>Latest</span>
-									<strong>{item.latest.data.title}</strong>
-								</div>
-							)
-						}
-					</a>
-				))
-			}
+		<div class="category-links">
+			{categoryLinks.map((item) => <a href={item.href}>{item.label}</a>)}
 		</div>
-	</section>
-
-	<section class="home-section">
-		<div class="home-section__header">
-			<p class="page-intro__eyebrow">Featured</p>
-			<h3>최근 눈에 띄는 글</h3>
-		</div>
-		<PostList posts={featuredPosts} featuredFirst={true} />
 	</section>
 
 	<section class="home-section">
 		<div class="home-section__header home-section__header--split">
 			<div>
-				<p class="page-intro__eyebrow">Latest</p>
-				<h3>방금 올라온 기록</h3>
+				<p class="page-intro__eyebrow">Posts</p>
+				<h3>최근 글</h3>
 			</div>
 			<a class="home-section__link" href="/blog/">전체 글 보러가기</a>
 		</div>
