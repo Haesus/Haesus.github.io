@@ -1,7 +1,7 @@
 ---
 import SiteShell from './SiteShell.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import { getCategoryHref, getTagHref } from '../lib/blog';
+import { getCategoryHref, getCategoryLabel, getTagHref } from '../lib/blog';
 
 interface Props {
 	title: string;
@@ -37,7 +37,7 @@ const {
 					category && (
 						<>
 							<span aria-hidden="true">•</span>
-							<a href={getCategoryHref(category)}>{category}</a>
+							<a href={getCategoryHref(category)}>{getCategoryLabel(category)}</a>
 						</>
 					)
 				}

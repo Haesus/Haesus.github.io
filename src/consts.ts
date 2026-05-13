@@ -4,7 +4,6 @@ export const SITE_URL = 'https://haesus.github.io';
 export const SITE_AUTHOR = 'Haesu Youn';
 export const SITE_EMAIL = 'sea15510@gmail.com';
 export const SITE_AVATAR = '/images/avatar.jpeg';
-export const SITE_COVER = '/images/cover.jpeg';
 
 export const NAV_ITEMS = [
 	{ label: 'Home', href: '/' },
@@ -25,8 +24,8 @@ export const SOCIAL_LINKS = [
 	{ label: 'Instagram', href: 'https://www.instagram.com/haesu.tag/' },
 ];
 
-export const CATEGORY_ROUTES = {
-	IOS: '/ios/',
-	'Coding-Test': '/coding-test/',
-	daily: '/daily/',
+export const CATEGORY_META = {
+	IOS: { label: 'iOS', href: '/ios/' },
+	'Coding-Test': { label: 'Coding Test', href: '/coding-test/' },
+	daily: { label: 'Daily', href: '/daily/' },
 } as const;

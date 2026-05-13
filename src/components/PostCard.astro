@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
-import { getCategoryHref, getPostDescription, getTagHref } from '../lib/blog';
+import { getCategoryHref, getCategoryLabel, getPostDescription, getTagHref } from '../lib/blog';
 
 interface Props {
 	post: CollectionEntry<'blog'>;
@@ -18,7 +18,7 @@ const description = getPostDescription(post);
 		{
 			post.data.category && (
 				<a class="post-card__category" href={getCategoryHref(post.data.category)}>
-					{post.data.category}
+					{getCategoryLabel(post.data.category)}
 				</a>
 			)
 		}

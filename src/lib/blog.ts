@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { CATEGORY_ROUTES } from '../consts';
+import { CATEGORY_META } from '../consts';
 
 export type BlogEntry = CollectionEntry<'blog'>;
 
@@ -10,7 +10,12 @@ export async function getPublishedPosts() {
 
 export function getCategoryHref(category?: string) {
 	if (!category) return '/blog/';
-	return CATEGORY_ROUTES[category as keyof typeof CATEGORY_ROUTES] ?? '/blog/';
+	return CATEGORY_META[category as keyof typeof CATEGORY_META]?.href ?? '/blog/';
+}
+
+export function getCategoryLabel(category?: string) {
+	if (!category) return 'Posts';
+	return CATEGORY_META[category as keyof typeof CATEGORY_META]?.label ?? category;
 }
 
 export function getTagHref(tag: string) {
