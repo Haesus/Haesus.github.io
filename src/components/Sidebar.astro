@@ -28,7 +28,7 @@ const socialIconMap = {
 
 <aside class="sidebar">
 	<div class="sidebar__inner">
-		<div>
+		<div class="sidebar__header">
 			<a class="sidebar__brand" href="/">
 				<img class="sidebar__avatar" src={SITE_AVATAR} alt={SITE_NAME} />
 				<div>
@@ -39,7 +39,16 @@ const socialIconMap = {
 			<p class="sidebar__description">{SITE_DESCRIPTION}</p>
 		</div>
 
-		<div>
+		<button
+			type="button"
+			class="sidebar__mobile-toggle"
+			aria-expanded="false"
+			aria-controls="sidebar-mobile-content"
+		>
+			메뉴 열기
+		</button>
+
+		<div id="sidebar-mobile-content" class="sidebar__content">
 			<nav class="sidebar__nav" aria-label="Primary">
 				<ul>
 					{
@@ -95,3 +104,40 @@ const socialIconMap = {
 		</div>
 	</div>
 </aside>
+
+<script>
+	const mediaQuery = window.matchMedia('(max-width: 820px)');
+	const toggleButton = document.querySelector('.sidebar__mobile-toggle');
+	const content = document.querySelector('#sidebar-mobile-content');
+
+	const syncSidebarState = () => {
+		if (!toggleButton || !content) return;
+
+		if (mediaQuery.matches) {
+			const expanded = toggleButton.getAttribute('aria-expanded') === 'true';
+			content.hidden = !expanded;
+			toggleButton.hidden = false;
+			toggleButton.textContent = expanded ? '메뉴 닫기' : '메뉴 열기';
+		} else {
+			content.hidden = false;
+			toggleButton.hidden = true;
+		}
+	};
+
+	if (toggleButton && content) {
+		toggleButton.addEventListener('click', () => {
+			const expanded = toggleButton.getAttribute('aria-expanded') === 'true';
+			toggleButton.setAttribute('aria-expanded', String(!expanded));
+			syncSidebarState();
+		});
+
+		mediaQuery.addEventListener('change', () => {
+			if (!mediaQuery.matches) {
+				toggleButton.setAttribute('aria-expanded', 'false');
+			}
+			syncSidebarState();
+		});
+
+		syncSidebarState();
+	}
+</script>
