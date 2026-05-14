@@ -2,14 +2,47 @@
 import PostList from '../components/PostList.astro';
 import SiteShell from '../layouts/SiteShell.astro';
 import { getPublishedPosts } from '../lib/blog';
-import { CATEGORY_META, SITE_COVER, formatPageTitle, SITE_DESCRIPTION } from '../consts';
+import {
+	CATEGORY_META,
+	SITE_AUTHOR,
+	SITE_COVER,
+	SITE_DESCRIPTION,
+	SITE_NAME,
+	SITE_URL,
+	formatPageTitle,
+} from '../consts';
 
 const posts = await getPublishedPosts();
 const latestPosts = posts.slice(0, 8);
 const categoryLinks = Object.values(CATEGORY_META);
+const homeSchema = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: SITE_NAME,
+		url: `${SITE_URL}/`,
+		description: SITE_DESCRIPTION,
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Blog',
+		name: SITE_NAME,
+		url: `${SITE_URL}/`,
+		description: SITE_DESCRIPTION,
+		publisher: {
+			'@type': 'Person',
+			name: SITE_AUTHOR,
+		},
+	},
+];
 ---
 
-<SiteShell title={formatPageTitle()} description={SITE_DESCRIPTION} image={SITE_COVER}>
+<SiteShell
+	title={formatPageTitle()}
+	description={SITE_DESCRIPTION}
+	image={SITE_COVER}
+	schema={homeSchema}
+>
 	<section class="hero hero--home">
 		<div class="hero__content">
 			<p class="hero__eyebrow">Tag</p>

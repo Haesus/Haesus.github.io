@@ -12,6 +12,7 @@ interface Props {
 	tags?: string[];
 	category?: string;
 	headings?: { depth: number; slug: string; text: string }[];
+	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 const {
@@ -23,10 +24,11 @@ const {
 	tags = [],
 	category,
 	headings = [],
+	schema,
 } = Astro.props;
 ---
 
-<SiteShell title={title} description={description}>
+<SiteShell title={title} description={description} schema={schema}>
 	<article class="post">
 		<header class="post__header">
 			<p class="post__date"><FormattedDate date={pubDate} /></p>

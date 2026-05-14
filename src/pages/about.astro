@@ -1,9 +1,26 @@
 ---
 import SiteShell from '../layouts/SiteShell.astro';
-import { formatPageTitle, SITE_AUTHOR, SITE_DESCRIPTION } from '../consts';
+import {
+	SITE_AUTHOR,
+	SITE_AVATAR,
+	SITE_DESCRIPTION,
+	SITE_NAME,
+	SITE_URL,
+	formatPageTitle,
+} from '../consts';
+
+const aboutSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: SITE_AUTHOR,
+	alternateName: SITE_NAME,
+	url: `${SITE_URL}/about/`,
+	image: new URL(SITE_AVATAR, SITE_URL).toString(),
+	sameAs: ['https://github.com/Haesus', 'https://www.younhaesu.com/'],
+};
 ---
 
-<SiteShell title={formatPageTitle('소개')} description={SITE_DESCRIPTION}>
+<SiteShell title={formatPageTitle('소개')} description={SITE_DESCRIPTION} schema={aboutSchema}>
 	<section class="page-intro">
 		<p class="page-intro__eyebrow">소개</p>
 		<h2>{SITE_AUTHOR}</h2>

@@ -1,7 +1,8 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
-import { getPostDescription } from '../../lib/blog';
+import { getCategoryLabel, getPostDescription } from '../../lib/blog';
+import { SITE_AUTHOR, SITE_COVER, SITE_URL } from '../../consts';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog', ({ data }) => data.published !== false);
@@ -16,8 +17,30 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content, headings } = await render(post);
 const description = getPostDescription(post);
+const postURL = new URL(`/blog/${post.id}/`, SITE_URL).toString();
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: post.data.title,
+	description,
+	datePublished: post.data.pubDate.toISOString(),
+	dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+	author: {
+		'@type': 'Person',
+		name: post.data.author || SITE_AUTHOR,
+	},
+	publisher: {
+		'@type': 'Person',
+		name: SITE_AUTHOR,
+	},
+	mainEntityOfPage: postURL,
+	url: postURL,
+	image: new URL(SITE_COVER, SITE_URL).toString(),
+	articleSection: post.data.category ? getCategoryLabel(post.data.category) : undefined,
+	keywords: post.data.tags.length > 0 ? post.data.tags : undefined,
+};
 ---
 
-<BlogPost {...post.data} description={description} headings={headings}>
+<BlogPost {...post.data} description={description} headings={headings} schema={schema}>
 	<Content />
 </BlogPost>
