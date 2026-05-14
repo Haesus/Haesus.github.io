@@ -1,0 +1,26 @@
+---
+import PostList from '../components/PostList.astro';
+import SiteShell from '../layouts/SiteShell.astro';
+import { CATEGORY_KEYS, CATEGORY_META, type CategoryKey, formatPageTitle, SITE_DESCRIPTION } from '../consts';
+import { filterPostsByCategory, getPublishedPosts } from '../lib/blog';
+
+export async function getStaticPaths() {
+	return CATEGORY_KEYS.map((category) => ({
+		params: { category: CATEGORY_META[category].href.replaceAll('/', '') },
+		props: { category },
+	}));
+}
+
+const { category } = Astro.props as { category: CategoryKey };
+const categoryMeta = CATEGORY_META[category];
+const posts = filterPostsByCategory(await getPublishedPosts(), category);
+---
+
+<SiteShell title={formatPageTitle(categoryMeta.label)} description={SITE_DESCRIPTION}>
+	<section class="page-intro">
+		<p class="page-intro__eyebrow">카테고리</p>
+		<h2>{categoryMeta.label}</h2>
+		<p>{categoryMeta.description}</p>
+	</section>
+	<PostList posts={posts} />
+</SiteShell>

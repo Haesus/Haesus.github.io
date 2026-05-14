@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { CATEGORY_KEYS } from './consts';
 
 const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
@@ -12,7 +13,7 @@ const blog = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			author: z.string().default('Tag'),
 			tags: z.array(z.string()).default([]),
-			category: z.string().optional(),
+			category: z.enum(CATEGORY_KEYS).optional(),
 			published: z.boolean().default(true),
 			toc: z.boolean().optional(),
 			slug: z.string().optional(),
